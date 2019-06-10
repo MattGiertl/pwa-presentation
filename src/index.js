@@ -16,7 +16,7 @@ ReactDOM.render(
   <AppContainer errorReporter={CustomErrorReporter}>
     <Presentation />
   </AppContainer>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 if (module.hot) {
@@ -26,7 +26,7 @@ if (module.hot) {
       <AppContainer errorReporter={CustomErrorReporter}>
         <NextPresentation />
       </AppContainer>,
-      document.getElementById('root')
+      document.getElementById('root'),
     );
   });
 }

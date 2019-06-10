@@ -33,9 +33,8 @@ const theme = createTheme(
   {
     primary: 'Montserrat',
     secondary: 'Helvetica',
-  }
+  },
 );
-
 
 export default class Presentation extends React.Component {
   render() {
@@ -111,8 +110,12 @@ export default class Presentation extends React.Component {
 
         </Slide>
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-          {/* eslint-disable-next-line import/no-webpack-loader-syntax */}
-          <CodePane textSize={20} lang="js" theme="external" source={require('./assets/serviceWorker.js.example')} />
+          <CodePane
+            textSize={20}
+            lang="js"
+            theme="external"
+            source={require('./assets/serviceWorker.js.example')}
+          />
         </Slide>
       </Deck>
     );
