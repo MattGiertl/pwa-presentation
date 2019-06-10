@@ -5,6 +5,7 @@ import { AppContainer } from 'react-hot-loader';
 import Redbox from 'redbox-react';
 
 import Presentation from './presentation';
+import * as serviceWorker from './serviceWorker';
 
 const CustomErrorReporter = ({ error }) => <Redbox error={error} />;
 
@@ -30,3 +31,5 @@ if (module.hot) {
     );
   });
 }
+
+serviceWorker.register();
