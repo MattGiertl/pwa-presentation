@@ -2,12 +2,14 @@ import React from 'react';
 
 import {
   Appear,
+  Code,
   CodePane,
   Deck,
   Heading,
   Layout,
   Fill,
   ListItem,
+  Link,
   List,
   Slide,
   Text,
@@ -33,6 +35,9 @@ import sw10cacheRetrieve from './assets/sw10cacheRetrieve.png';
 import sw11cacheResponse from './assets/sw11cacheResponse.png';
 import sw12cacheResponseOffline from './assets/sw12cacheResponseOffline.png';
 
+import newVersionAvailablePopup from './assets/newVersionAvailablePopup.jpg';
+import updatingServiceWorker from './assets/updatingServiceWorker.jpg';
+
 require('normalize.css');
 
 const theme = createTheme(
@@ -55,6 +60,7 @@ export default class Presentation extends React.Component {
         transition={['zoom', 'slide']}
         transitionDuration={500}
         theme={theme}
+        progress="bar"
       >
         <Slide transition={['zoom']} bgColor="primary">
           <Heading size={1} fit lineHeight={1} textColor="secondary">
@@ -67,6 +73,7 @@ export default class Presentation extends React.Component {
             Martin Kapal & Matúš Giertl
           </Text>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={3}>What is PWA?</Heading>
           <Appear>
@@ -75,6 +82,7 @@ export default class Presentation extends React.Component {
             </Text>
           </Appear>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={3}>Why should you care?</Heading>
           <List>
@@ -97,6 +105,7 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3}>PWA to the rescue!</Heading>
           <Appear>
@@ -115,6 +124,7 @@ export default class Presentation extends React.Component {
             </Text>
           </Appear>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3}>Speed & reliability</Heading>
           <List>
@@ -129,6 +139,7 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3}>Engagement</Heading>
           <List>
@@ -143,6 +154,7 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3}>Speed & reliability</Heading>
         </Slide>
@@ -188,6 +200,7 @@ export default class Presentation extends React.Component {
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw12cacheResponseOffline} />
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3}>
             Wait&hellip; why not use browser cache instead?
@@ -204,6 +217,7 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3}>Service worker</Heading>
           <List>
@@ -221,6 +235,7 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3}>What do we need?</Heading>
           <List>
@@ -237,6 +252,7 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3} margin="0 0 40px 0">
             Browser support
@@ -263,6 +279,7 @@ export default class Presentation extends React.Component {
             </Fill>
           </Layout>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3}>Service worker lifecycle</Heading>
           <List>
@@ -277,9 +294,10 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3} margin="20px 0">
-            Registration
+            Register
           </Heading>
           <List>
             <Appear>
@@ -293,9 +311,10 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3} margin="20px 0">
-            Registration
+            Register
           </Heading>
           <CodePane
             textSize="24px"
@@ -307,9 +326,10 @@ export default class Presentation extends React.Component {
             app.js
           </Text>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3} margin="20px 0">
-            Installation
+            Install
           </Heading>
           <List>
             <Appear>
@@ -317,9 +337,10 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3} margin="20px 0">
-            Installation
+            Install
           </Heading>
           <CodePane
             textSize="24px"
@@ -331,23 +352,10 @@ export default class Presentation extends React.Component {
             service-worker.js
           </Text>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3} margin="20px 0">
-            Installation
-          </Heading>
-          <CodePane
-            textSize="24px"
-            lang="js"
-            theme="external"
-            source={require('./assets/serviceWorkerInstallation2.js.example')}
-          />
-          <Text italic textSize="30px" margin="20px">
-            service-worker.js
-          </Text>
-        </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-          <Heading size={3} margin="20px 0">
-            Activation
+            Activate
           </Heading>
           <List>
             <Appear>
@@ -356,7 +364,111 @@ export default class Presentation extends React.Component {
             <Appear>
               <ListItem>Ready to take control after refresh</ListItem>
             </Appear>
+            <Appear>
+              <ListItem>Good place to remove cached assets from previous versions</ListItem>
+            </Appear>
           </List>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+          <Heading size={3} margin="20px 0">
+            Serve cached data
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>Use the <Code>fetch</Code> listener to intercept requests</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Decide how to handle the response</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Several caching strategies</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+          <Heading size={3} margin="20px 0">
+            Serve cached data
+          </Heading>
+          <Text margin="20px 0">Cache-first strategy – good for static assets</Text>
+          <CodePane
+            textSize="24px"
+            lang="js"
+            theme="external"
+            source={require('./assets/serviceWorkerFetchCacheFirst.js.example')}
+          />
+          <Text italic textSize="30px" margin="20px">
+            service-worker.js
+          </Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+          <Heading size={3} margin="20px 0">
+            Workbox
+          </Heading>
+          <Appear>
+            <Text textSize="35px">
+              Set of libraries to make life easier when building PWAs
+            </Text>
+          </Appear>
+          <List>
+            <Appear>
+              <ListItem>Precaching with autogenerated cache lists</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Built-in cache strategies</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Request routing</ListItem>
+            </Appear>
+          </List>
+          <Appear><div><Link href="https://developers.google.com/web/tools/workbox/">https://developers.google.com/web/tools/workbox/</Link></div></Appear>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+          <Heading size={3} margin="20px 0">
+            How to handle app updates?
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>Make sure <Code>service-worker.js</Code> is not cached or renamed</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Update the file with new static assets</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+          <Heading size={3} margin="20px 0">
+            And how does the browser handle it?
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>Browser detects an update</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>New worker enters the "waiting" state</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Old app must be closed to activate new worker – not very convenient</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Can we just <Code>skipWaiting();</Code> ?</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+          <Image src={newVersionAvailablePopup} />
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+          <Image src={updatingServiceWorker} />
+          <Link href="https://deanhume.com/displaying-a-new-version-available-progressive-web-app/">deanhume.com/displaying-a-new-version-available-progressive-web-app/</Link>
+        </Slide>
+        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
         </Slide>
       </Deck>
     );
