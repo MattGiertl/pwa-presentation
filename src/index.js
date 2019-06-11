@@ -32,4 +32,5 @@ if (module.hot) {
   });
 }
 
-serviceWorker.register();
+// TODO : Register when ready
+// serviceWorker.register();
