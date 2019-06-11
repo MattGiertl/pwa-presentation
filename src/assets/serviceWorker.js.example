@@ -1,9 +1,0 @@
-// No service worker found. Probably a different app. Reload the page.
-import { CodePane } from "spectacle";
-import React from 'react';
-
-navigator.serviceWorker.ready.then(registration => {
-  registration.unregister().then(() => {
-    window.location.reload();
-  });
-});
