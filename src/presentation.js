@@ -54,6 +54,12 @@ const theme = createTheme(
 );
 
 export default class Presentation extends React.Component {
+  renderListItem = text => (
+    <Appear>
+      <ListItem padding="0 0 10px 0">{text}</ListItem>
+    </Appear>
+  );
+
   render() {
     return (
       <Deck
@@ -365,7 +371,9 @@ export default class Presentation extends React.Component {
               <ListItem>Ready to take control after refresh</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Good place to remove cached assets from previous versions</ListItem>
+              <ListItem>
+                Good place to remove cached assets from previous versions
+              </ListItem>
             </Appear>
           </List>
         </Slide>
@@ -376,7 +384,9 @@ export default class Presentation extends React.Component {
           </Heading>
           <List>
             <Appear>
-              <ListItem>Use the <Code>fetch</Code> listener to intercept requests</ListItem>
+              <ListItem>
+                Use the <Code>fetch</Code> listener to intercept requests
+              </ListItem>
             </Appear>
             <Appear>
               <ListItem>Decide how to handle the response</ListItem>
@@ -391,7 +401,9 @@ export default class Presentation extends React.Component {
           <Heading size={3} margin="20px 0">
             Serve cached data
           </Heading>
-          <Text margin="20px 0">Cache-first strategy – good for static assets</Text>
+          <Text margin="20px 0">
+            Cache-first strategy – good for static assets
+          </Text>
           <CodePane
             textSize="24px"
             lang="js"
@@ -423,7 +435,13 @@ export default class Presentation extends React.Component {
               <ListItem>Request routing</ListItem>
             </Appear>
           </List>
-          <Appear><div><Link href="https://developers.google.com/web/tools/workbox/">https://developers.google.com/web/tools/workbox/</Link></div></Appear>
+          <Appear>
+            <div>
+              <Link href="https://developers.google.com/web/tools/workbox/">
+                https://developers.google.com/web/tools/workbox/
+              </Link>
+            </div>
+          </Appear>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
@@ -432,7 +450,10 @@ export default class Presentation extends React.Component {
           </Heading>
           <List>
             <Appear>
-              <ListItem>Make sure <Code>service-worker.js</Code> is not cached or renamed</ListItem>
+              <ListItem>
+                Make sure <Code>service-worker.js</Code> is not cached or
+                renamed
+              </ListItem>
             </Appear>
             <Appear>
               <ListItem>Update the file with new static assets</ListItem>
@@ -452,10 +473,15 @@ export default class Presentation extends React.Component {
               <ListItem>New worker enters the "waiting" state</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Old app must be closed to activate new worker – not very convenient</ListItem>
+              <ListItem>
+                Old app must be closed to activate new worker – not very
+                convenient
+              </ListItem>
             </Appear>
             <Appear>
-              <ListItem>Can we just <Code>skipWaiting();</Code> ?</ListItem>
+              <ListItem>
+                Can we just <Code>skipWaiting();</Code> ?
+              </ListItem>
             </Appear>
           </List>
         </Slide>
@@ -466,10 +492,70 @@ export default class Presentation extends React.Component {
 
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Image src={updatingServiceWorker} />
-          <Link href="https://deanhume.com/displaying-a-new-version-available-progressive-web-app/">deanhume.com/displaying-a-new-version-available-progressive-web-app/</Link>
+          <Link href="https://deanhume.com/displaying-a-new-version-available-progressive-web-app/">
+            deanhume.com/displaying-a-new-version-available-progressive-web-app/
+          </Link>
         </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+        <Slide>
+          <Heading>Reaching the user</Heading>
+          <List>
+            {this.renderListItem('keep it web only')}
+            {this.renderListItem('Deploy it to an App Store!')}
+          </List>
         </Slide>
+
+        <Slide>
+          <Heading>Store Deployment</Heading>
+          <List>
+            {this.renderListItem('Play Store integration since 2018')}
+            {this.renderListItem('no iOS support tho')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading>So it's a hybrid app right?</Heading>
+          <List>
+            {this.renderListItem("Nope, there's no APK file")}
+            {this.renderListItem('TWA')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading>Play Store Criteria</Heading>
+          <List>
+            {this.renderListItem('Passing the current PWA Criteria')}
+            {this.renderListItem('Performance score of 80/100 from Lighthouse')}
+            {this.renderListItem('All Curren Play Store rules')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading>So which approach should I use for my app?</Heading>
+        </Slide>
+
+        <Slide>
+          <Heading>DEPENDS...</Heading>
+        </Slide>
+
+        <Slide>
+          <Heading>Going PWA</Heading>
+          <List>
+            {this.renderListItem('Get it to the marker real quick')}
+            {this.renderListItem('Brand promotion')}
+            {this.renderListItem('Easy to implement (really)')}
+            {this.renderListItem('Framework agnostic')}
+            {this.renderListItem('Google and Microsoft are pushing it forward')}
+          </List>
+        </Slide>
+
+        <Slide>(NOT) Going PWA</Slide>
+        <List>
+          {this.renderListItem('Limited native SDK functionality')}
+          {this.renderListItem('Not suited for games')}
+          {this.renderListItem(
+            'Not suited apps that deal with heavy computation',
+          )}
+        </List>
       </Deck>
     );
   }
