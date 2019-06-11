@@ -38,7 +38,6 @@ import sw12cacheResponseOffline from './assets/sw12cacheResponseOffline.png';
 import newVersionAvailablePopup from './assets/newVersionAvailablePopup.jpg';
 import updatingServiceWorker from './assets/updatingServiceWorker.jpg';
 
-import iosInstallation from './assets/ios-installation.gif';
 import androidInstallation from './assets/android-installation.gif';
 
 require('normalize.css');
