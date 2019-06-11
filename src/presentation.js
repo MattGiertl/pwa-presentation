@@ -42,6 +42,10 @@ import lighthouseTab from './assets/lighthouse-tab.png';
 import lighthouseResults from './assets/lighthouse-results.png';
 import lighthouseFailed from './assets/lighthouse-failed.png';
 
+import manifestTab from './assets/manifest-tab.png';
+import serviceworkersTab from './assets/serviceworkers-tab.png';
+import storageTab from './assets/storage-tab.png';
+
 require('normalize.css');
 
 const theme = createTheme(
@@ -563,6 +567,49 @@ export default class Presentation extends React.Component {
               <Image src={lighthouseFailed} />
             </Appear>
           </List>
+        </Slide>
+
+        <Slide>
+          <Heading>Chrome Dev Tools</Heading>
+          <List>
+            {this.renderListItem('Your best friend for PWAs')}
+            {this.renderListItem(
+              'Offers insight into critical areas of your app',
+            )}
+            {this.renderListItem('Application Tab in Chrome :)')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading>Manifest Section</Heading>
+          <List>
+            {this.renderListItem('Information about the App Manifest')}
+            {this.renderListItem('Shows you your app manifest settings')}
+            {this.renderListItem('Checks for imperfections')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={4}>Manifest Section 2</Heading>
+          <Image src={manifestTab} />
+        </Slide>
+
+        <Slide>
+          <Heading>Service Workers Tab</Heading>
+          <List>
+            {this.renderListItem('Network simulation')}
+            {this.renderListItem('Lifecycle manipulation')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={3}>Service Workers Tab 2</Heading>
+          <Image src={serviceworkersTab} />
+        </Slide>
+
+        <Slide>
+          <Heading>Storage Tab</Heading>
+          <Image src={storageTab} />
         </Slide>
       </Deck>
     );
