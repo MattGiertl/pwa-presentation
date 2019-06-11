@@ -38,6 +38,10 @@ import sw12cacheResponseOffline from './assets/sw12cacheResponseOffline.png';
 import newVersionAvailablePopup from './assets/newVersionAvailablePopup.jpg';
 import updatingServiceWorker from './assets/updatingServiceWorker.jpg';
 
+import lighthouseTab from './assets/lighthouse-tab.png';
+import lighthouseResults from './assets/lighthouse-results.png';
+import lighthouseFailed from './assets/lighthouse-failed.png';
+
 require('normalize.css');
 
 const theme = createTheme(
@@ -54,6 +58,12 @@ const theme = createTheme(
 );
 
 export default class Presentation extends React.Component {
+  renderListItem = text => (
+    <Appear>
+      <ListItem padding="0 0 10px 0">{text}</ListItem>
+    </Appear>
+  );
+
   render() {
     return (
       <Deck
@@ -70,7 +80,7 @@ export default class Presentation extends React.Component {
             In Practice
           </Heading>
           <Text margin="30px 0 0" textColor="tertiary">
-            Martin Kapal & Matúš Giertl
+            Bc. Martin Kapal & Bc. Matúš Giertl
           </Text>
         </Slide>
 
@@ -365,7 +375,9 @@ export default class Presentation extends React.Component {
               <ListItem>Ready to take control after refresh</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Good place to remove cached assets from previous versions</ListItem>
+              <ListItem>
+                Good place to remove cached assets from previous versions
+              </ListItem>
             </Appear>
           </List>
         </Slide>
@@ -376,7 +388,9 @@ export default class Presentation extends React.Component {
           </Heading>
           <List>
             <Appear>
-              <ListItem>Use the <Code>fetch</Code> listener to intercept requests</ListItem>
+              <ListItem>
+                Use the <Code>fetch</Code> listener to intercept requests
+              </ListItem>
             </Appear>
             <Appear>
               <ListItem>Decide how to handle the response</ListItem>
@@ -391,7 +405,9 @@ export default class Presentation extends React.Component {
           <Heading size={3} margin="20px 0">
             Serve cached data
           </Heading>
-          <Text margin="20px 0">Cache-first strategy – good for static assets</Text>
+          <Text margin="20px 0">
+            Cache-first strategy – good for static assets
+          </Text>
           <CodePane
             textSize="24px"
             lang="js"
@@ -423,7 +439,13 @@ export default class Presentation extends React.Component {
               <ListItem>Request routing</ListItem>
             </Appear>
           </List>
-          <Appear><div><Link href="https://developers.google.com/web/tools/workbox/">https://developers.google.com/web/tools/workbox/</Link></div></Appear>
+          <Appear>
+            <div>
+              <Link href="https://developers.google.com/web/tools/workbox/">
+                https://developers.google.com/web/tools/workbox/
+              </Link>
+            </div>
+          </Appear>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
@@ -432,7 +454,10 @@ export default class Presentation extends React.Component {
           </Heading>
           <List>
             <Appear>
-              <ListItem>Make sure <Code>service-worker.js</Code> is not cached or renamed</ListItem>
+              <ListItem>
+                Make sure <Code>service-worker.js</Code> is not cached or
+                renamed
+              </ListItem>
             </Appear>
             <Appear>
               <ListItem>Update the file with new static assets</ListItem>
@@ -452,10 +477,15 @@ export default class Presentation extends React.Component {
               <ListItem>New worker enters the "waiting" state</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Old app must be closed to activate new worker – not very convenient</ListItem>
+              <ListItem>
+                Old app must be closed to activate new worker – not very
+                convenient
+              </ListItem>
             </Appear>
             <Appear>
-              <ListItem>Can we just <Code>skipWaiting();</Code> ?</ListItem>
+              <ListItem>
+                Can we just <Code>skipWaiting();</Code> ?
+              </ListItem>
             </Appear>
           </List>
         </Slide>
@@ -466,9 +496,73 @@ export default class Presentation extends React.Component {
 
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Image src={updatingServiceWorker} />
-          <Link href="https://deanhume.com/displaying-a-new-version-available-progressive-web-app/">deanhume.com/displaying-a-new-version-available-progressive-web-app/</Link>
+          <Link href="https://deanhume.com/displaying-a-new-version-available-progressive-web-app/">
+            deanhume.com/displaying-a-new-version-available-progressive-web-app/
+          </Link>
         </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+
+        <Slide
+          transition={['fade']}
+          bgColor="primary"
+          textColor="secondary"
+        ></Slide>
+
+        <Slide>
+          <Heading size={2}>Testing and Tooling</Heading>
+          <List>
+            {this.renderListItem('Cypress, Selenium for automation')}
+            {this.renderListItem('Lighthouse')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={2}>Lighthouse</Heading>
+          <List>
+            {this.renderListItem(
+              'Automated auditing tool for improving the quality of web pages',
+            )}
+            {this.renderListItem('Accessible via Chrome Dev Tools')}
+            {this.renderListItem('Supported on any kind of web pages')}
+            {this.renderListItem('Includes many different types of audits')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={2}>Lighthouse Audit types</Heading>
+          <List>
+            {this.renderListItem('Mobile/Desktop responsiveness')}
+            {this.renderListItem('Performance')}
+            {this.renderListItem('PWA checklist')}
+            {this.renderListItem('Best Practoces')}
+            {this.renderListItem('Accessibility')}
+            {this.renderListItem('SEO')}
+            {this.renderListItem('Network Simulation')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={4}>Lighthouse - initial setup</Heading>
+          <Image src={lighthouseTab} />
+        </Slide>
+
+        <Slide>
+          <Heading size={4}>Audit Results</Heading>
+          <Image src={lighthouseResults} />
+        </Slide>
+
+        <Slide>
+          <Heading size={4}>Audit Results 2</Heading>
+          <List>
+            {this.renderListItem(
+              'Provides detailed information about each section',
+            )}
+            {this.renderListItem(
+              'Shows you the exact spot where you can improve your app',
+            )}
+            <Appear>
+              <Image src={lighthouseFailed} />
+            </Appear>
+          </List>
         </Slide>
       </Deck>
     );
