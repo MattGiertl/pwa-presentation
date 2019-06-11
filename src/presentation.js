@@ -38,6 +38,9 @@ import sw12cacheResponseOffline from './assets/sw12cacheResponseOffline.png';
 import newVersionAvailablePopup from './assets/newVersionAvailablePopup.jpg';
 import updatingServiceWorker from './assets/updatingServiceWorker.jpg';
 
+import iosInstallation from './assets/ios-installation.gif';
+import androidInstallation from './assets/android-installation.gif';
+
 require('normalize.css');
 
 const theme = createTheme(
@@ -56,7 +59,7 @@ const theme = createTheme(
 export default class Presentation extends React.Component {
   renderListItem = text => (
     <Appear>
-      <ListItem>{text}</ListItem>
+      <ListItem padding="0 0 10px 0">{text}</ListItem>
     </Appear>
   );
 
@@ -558,6 +561,59 @@ export default class Presentation extends React.Component {
               source={require('./assets/ios-tags.html.example')}
             />
           </Appear>
+        </Slide>
+
+        <Slide>
+          <Heading size={4} margin="20px 0">
+            App Installation
+          </Heading>
+          <List>
+            {this.renderListItem(
+              'Add To Homescreen Banner makes it easy to install the app',
+            )}
+            {this.renderListItem('Informs the user of our PWAs existence!')}
+            {this.renderListItem("No App Store needed (if you don't want to)")}
+            {this.renderListItem(
+              'You need to meet certain conditions, for the banner to appear',
+            )}
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size={3}>Conditions</Heading>
+          <List>
+            {this.renderListItem('The Web App is not already installed (duh)')}
+            {this.renderListItem(
+              'App manifest is present, with icons, start url and name',
+            )}
+            {this.renderListItem('The app is server over HTTPS')}
+            {this.renderListItem('Successful Service Worker registration')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size="4" margin="0 0 20px 0">
+            App Install Banner in ACTION
+          </Heading>
+          <Appear>
+            <Image src={androidInstallation} />
+          </Appear>
+        </Slide>
+
+        <Slide>
+          <Heading>What about iOS?</Heading>
+          <Text>Well...</Text>
+          <List>
+            {this.renderListItem('Not supported (yet!)')}
+            {this.renderListItem('The banner needs to be implemented manually')}
+            {this.renderListItem('The App needs to be installed manually')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={3} margin="0 0 50px 0">
+            iOS Installation Process
+          </Heading>
+          <Image src="https://thumbs.gfycat.com/EasygoingPartialIrishwaterspaniel-size_restricted.gif" />
         </Slide>
       </Deck>
     );
