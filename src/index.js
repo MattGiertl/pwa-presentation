@@ -5,6 +5,7 @@ import { AppContainer } from 'react-hot-loader';
 import Redbox from 'redbox-react';
 
 import Presentation from './presentation';
+// import * as serviceWorker from './serviceWorker';
 
 const CustomErrorReporter = ({ error }) => <Redbox error={error} />;
 
@@ -16,7 +17,7 @@ ReactDOM.render(
   <AppContainer errorReporter={CustomErrorReporter}>
     <Presentation />
   </AppContainer>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 if (module.hot) {
@@ -26,7 +27,10 @@ if (module.hot) {
       <AppContainer errorReporter={CustomErrorReporter}>
         <NextPresentation />
       </AppContainer>,
-      document.getElementById('root')
+      document.getElementById('root'),
     );
   });
 }
+
+// TODO : Register when ready
+// serviceWorker.register();

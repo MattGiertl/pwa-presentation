@@ -1,0 +1,14 @@
+const CACHE_NAME = 'my-app-v1';
+const urlsToCache = [
+  '/',
+  '/css/app-v1.css',
+  '/js/app-v1.js',
+  // ...
+];
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(urlsToCache))
+  );
+});

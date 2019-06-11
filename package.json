@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "prism-themes": "^1.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "spectacle-scripts": "2.4.0"
@@ -11,7 +12,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write \"*.js\" \"src/**/*.js\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -23,6 +25,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "prettier": "^1.18.2",
     "spectacle": "^5.5.0"
   }
 }
