@@ -756,7 +756,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading>So it's a hybrid app right?</Heading>
+          <Heading>So it's a hybrid app, right?</Heading>
           <List>
             {this.renderListItem("Nope, there's no APK file")}
             {this.renderListItem('TWA')}
