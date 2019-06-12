@@ -47,6 +47,8 @@ import serviceworkersTab from './assets/serviceworkers-tab.png';
 import storageTab from './assets/storage-tab.png';
 import androidInstallation from './assets/android-installation.gif';
 
+import pwaLogo from './assets/pwa-logo.png';
+
 require('normalize.css');
 
 const theme = createTheme(
@@ -81,9 +83,6 @@ export default class Presentation extends React.Component {
           <Heading size={1} fit lineHeight={1} textColor="secondary">
             Progressive Web Applications
           </Heading>
-          <Heading size={6} lineHeight={1} textColor="secondary">
-            In Practice
-          </Heading>
           <Text margin="30px 0 0" textColor="tertiary">
             Martin Kapal & Matúš Giertl
           </Text>
@@ -113,7 +112,7 @@ export default class Presentation extends React.Component {
               </ListItem>
             </Appear>
             <Appear>
-              <ListItem>Native apps go through App Store</ListItem>
+              <ListItem>Native apps deployed to an App Store</ListItem>
             </Appear>
             <Appear>
               <ListItem>Going native may not a viable solution</ListItem>
@@ -258,9 +257,6 @@ export default class Presentation extends React.Component {
             </Appear>
             <Appear>
               <ListItem>Cannot access DOM directly</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Framework agnostic</ListItem>
             </Appear>
           </List>
         </Slide>
@@ -520,6 +516,10 @@ export default class Presentation extends React.Component {
           </Link>
         </Slide>
 
+        <Slide>
+          <Heading>Let's ENGAGE</Heading>
+        </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3} margin="20px 0">
             Web App Manifest
@@ -570,9 +570,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading size={4} margin="20px 0">
-            App Installation
-          </Heading>
+          <Heading margin="20px 0">App Installation</Heading>
           <List>
             {this.renderListItem(
               'Add To Homescreen Banner makes it easy to install the app',
@@ -624,18 +622,18 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading size={2}>Testing and Tooling</Heading>
-          <List>
-            {this.renderListItem('Cypress, Selenium for automation')}
-            {this.renderListItem('Lighthouse')}
-          </List>
+          <Heading margin="0 0 50px 0">Your turn</Heading>
+          <Text margin="0 0 20px 0">Install the PRESENTATION itself ;)</Text>
+          <Link href="https://pwa-in-practice.firebaseapp.com/#/1">
+            https://pwa-in-practice.firebaseapp.com/#/1
+          </Link>
         </Slide>
 
         <Slide>
-          <Heading>Store Deployment</Heading>
+          <Heading>Testing and Tooling</Heading>
           <List>
-            {this.renderListItem('Play Store integration since 2018')}
-            {this.renderListItem('No iOS support')}
+            {this.renderListItem('Cypress, Selenium for automation')}
+            {this.renderListItem('Lighthouse')}
           </List>
         </Slide>
 
@@ -736,12 +734,23 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
+          <Heading>Store Deployment</Heading>
+          <List>
+            {this.renderListItem('Play Store integration since 2018')}
+            {this.renderListItem('No iOS support')}
+          </List>
+        </Slide>
+
+        <Slide>
           <Heading>Play Store Criteria</Heading>
           <List>
             {this.renderListItem('Passing the current PWA Criteria')}
             {this.renderListItem('Performance score of 80/100 from Lighthouse')}
             {this.renderListItem('All current Play Store rules')}
           </List>
+        </Slide>
+
+        <Slide>
           <Heading size={4}>Lighthouse - initial setup</Heading>
           <Image src={lighthouseTab} />
         </Slide>
@@ -765,8 +774,6 @@ export default class Presentation extends React.Component {
         <Slide>
           <Heading>Going PWA</Heading>
           <List>
-            {this.renderListItem('Get it to the marker real quick')}
-            {this.renderListItem('Brand promotion')}
             {this.renderListItem('Easy to implement (really)')}
             {this.renderListItem('Framework agnostic')}
             {this.renderListItem('Google and Microsoft are pushing it forward')}
@@ -781,7 +788,13 @@ export default class Presentation extends React.Component {
             {this.renderListItem(
               'Not suited for apps that deal with heavy computation',
             )}
+            {this.renderListItem('bad iOS support (until now, kinda)')}
           </List>
+        </Slide>
+
+        <Slide>
+          <Heading>Thanks!</Heading>
+          <Image src={pwaLogo} />
         </Slide>
       </Deck>
     );
