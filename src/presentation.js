@@ -476,7 +476,7 @@ export default class Presentation extends React.Component {
             What happens next...
           </Heading>
           <List>
-            {this.renderListItem('New worker enters the "waiting" state')}
+            {this.renderListItem('New worker enters the “waiting” state')}
             {this.renderListItem("Refreshing the page is not enough!")}
             {this.renderListItem("Old app must be closed to activate the new worker")}
             {this.renderListItem("Solution: App refresh popup")}
