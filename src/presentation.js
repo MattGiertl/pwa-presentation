@@ -45,6 +45,7 @@ import lighthouseFailed from './assets/lighthouse-failed.png';
 import manifestTab from './assets/manifest-tab.png';
 import serviceworkersTab from './assets/serviceworkers-tab.png';
 import storageTab from './assets/storage-tab.png';
+import androidInstallation from './assets/android-installation.gif';
 
 require('normalize.css');
 
@@ -172,45 +173,59 @@ export default class Presentation extends React.Component {
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3}>Speed & reliability</Heading>
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw1} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw2request} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw3response} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw1} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw4serviceWorker} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw5serviceWorkerRequest} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw6serviceWorkerResponse} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw4serviceWorker} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw7cache} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw8cacheRequest} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw9cacheLookup} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw10cacheRetrieve} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw11cacheResponse} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw12cacheResponseOffline} />
         </Slide>
@@ -505,11 +520,107 @@ export default class Presentation extends React.Component {
           </Link>
         </Slide>
 
-        <Slide
-          transition={['fade']}
-          bgColor="primary"
-          textColor="secondary"
-        ></Slide>
+        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+          <Heading size={3} margin="20px 0">
+            Web App Manifest
+          </Heading>
+          <List>
+            {this.renderListItem('Simple JSON File')}
+            {this.renderListItem('Controls the App appearance after launch')}
+            {this.renderListItem('Contains basic information about the App')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={3} margin="20px 0">
+            A typical manifest looks like...
+          </Heading>
+          <Appear>
+            <CodePane
+              textSize="15px"
+              lang="js"
+              theme="external"
+              source={require('./assets/manifest.json.example')}
+            />
+          </Appear>
+        </Slide>
+
+        <Slide>
+          <Heading size={4} margin="20px 0">
+            Not everything is as awesome though
+          </Heading>
+          <List>
+            {this.renderListItem('Incompatible with iOS (for now)')}
+            {this.renderListItem('You need to use iOS specific meta tags')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={4} margin="20px 0">
+            iOS meta tags
+          </Heading>
+          <Appear>
+            <CodePane
+              textSize="15px"
+              lang="html"
+              theme="external"
+              source={require('./assets/ios-tags.html.example')}
+            />
+          </Appear>
+        </Slide>
+
+        <Slide>
+          <Heading size={4} margin="20px 0">
+            App Installation
+          </Heading>
+          <List>
+            {this.renderListItem(
+              'Add To Homescreen Banner makes it easy to install the app',
+            )}
+            {this.renderListItem('Informs the user of our PWAs existence!')}
+            {this.renderListItem("No App Store needed (if you don't want to)")}
+            {this.renderListItem(
+              'You need to meet certain conditions, for the banner to appear',
+            )}
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size={3}>Conditions</Heading>
+          <List>
+            {this.renderListItem('The Web App is not already installed (duh)')}
+            {this.renderListItem(
+              'App manifest is present, with icons, start url and name',
+            )}
+            {this.renderListItem('The app is server over HTTPS')}
+            {this.renderListItem('Successful Service Worker registration')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size="4" margin="0 0 20px 0">
+            App Install Banner in ACTION
+          </Heading>
+          <Appear>
+            <Image src={androidInstallation} />
+          </Appear>
+        </Slide>
+
+        <Slide>
+          <Heading>What about iOS?</Heading>
+          <Text>Well...</Text>
+          <List>
+            {this.renderListItem('Not supported (yet!)')}
+            {this.renderListItem('The banner needs to be implemented manually')}
+            {this.renderListItem('The App needs to be installed manually')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={3} margin="0 0 50px 0">
+            iOS Installation Process
+          </Heading>
+          <Image src="https://thumbs.gfycat.com/EasygoingPartialIrishwaterspaniel-size_restricted.gif" />
+        </Slide>
 
         <Slide>
           <Heading size={2}>Testing and Tooling</Heading>
@@ -537,7 +648,7 @@ export default class Presentation extends React.Component {
             {this.renderListItem('Mobile/Desktop responsiveness')}
             {this.renderListItem('Performance')}
             {this.renderListItem('PWA checklist')}
-            {this.renderListItem('Best Practoces')}
+            {this.renderListItem('Best Practices')}
             {this.renderListItem('Accessibility')}
             {this.renderListItem('SEO')}
             {this.renderListItem('Network Simulation')}
