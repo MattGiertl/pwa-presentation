@@ -50,6 +50,7 @@ import pwaLogo from './assets/pwa-logo.png';
 import appShell from './assets/app-shell.jpg';
 
 require('normalize.css');
+require('./override.css');
 
 const theme = createTheme(
   {
