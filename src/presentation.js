@@ -592,9 +592,10 @@ export default class Presentation extends React.Component {
 
         <Slide transition={['fade']}>
           <Heading size={3} margin="0 0 50px 0">
-            Your turn
+            Your turn!
           </Heading>
-          <Text margin="0 0 30px 0">Install the PRESENTATION itself ;)</Text>
+          <Text margin="0 0 50px 0">Install the PRESENTATION itself ;)</Text>
+          <Image src={pwaAppIcon} />
           <Link textSize="50px" href="https://pwa-in-practice.web.app">
             pwa-in-practice.web.app
           </Link>
