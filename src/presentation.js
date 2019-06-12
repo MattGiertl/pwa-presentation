@@ -47,6 +47,7 @@ import androidInstallation from './assets/android-installation.gif';
 import iosInstallation from './assets/ios-installation.gif';
 
 import pwaLogo from './assets/pwa-logo.png';
+import pwaAppIcon from './assets/pwa-icon.png';
 import appShell from './assets/app-shell.jpg';
 
 require('normalize.css');
@@ -744,6 +745,17 @@ export default class Presentation extends React.Component {
               'Not suited for apps that deal with heavy computation',
             )}
             {this.renderListItem('Bad iOS support (until now, kinda)')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={4}>iOS limitations</Heading>
+          <List>
+            {this.renderListItem('No push notifications')}
+            {this.renderListItem('No background sync')}
+            {this.renderListItem('No orientation lock')}
+            {this.renderListItem('(< iOS 12.2) app sessions not persisted')}
+            {this.renderListItem('(< iOS 12.2) no navigation gestures')}
           </List>
         </Slide>
 
