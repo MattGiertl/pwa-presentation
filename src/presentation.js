@@ -663,6 +663,11 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
+          <Heading size={4}>Lighthouse - initial setup</Heading>
+          <Image src={lighthouseTab} />
+        </Slide>
+
+        <Slide>
           <Heading size={4}>Audit Results</Heading>
           <Image src={lighthouseResults} />
         </Slide>
@@ -748,11 +753,6 @@ export default class Presentation extends React.Component {
             {this.renderListItem('Performance score of 80/100 from Lighthouse')}
             {this.renderListItem('All current Play Store rules')}
           </List>
-        </Slide>
-
-        <Slide>
-          <Heading size={4}>Lighthouse - initial setup</Heading>
-          <Image src={lighthouseTab} />
         </Slide>
 
         <Slide>
