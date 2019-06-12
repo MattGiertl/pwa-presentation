@@ -346,27 +346,6 @@ export default class Presentation extends React.Component {
 
         <Slide transition={['fade']}>
           <Heading size={3} margin="20px 0">
-            Activation
-          </Heading>
-          <List>
-            <Appear>
-              <ListItem>Service worker will activate after refresh</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>
-                Can use <Code>clients.claim();</Code> to activate immediately
-              </ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>
-                Good place to remove cached assets from previous versions
-              </ListItem>
-            </Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={['fade']}>
-          <Heading size={3} margin="20px 0">
             Serve cached data
           </Heading>
           <Appear>
