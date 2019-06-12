@@ -1,6 +1,6 @@
 {
-  "short_name": "Maps",
-  "name": "Google Maps",
+  "short_name": "PWA",
+  "name": "PWA in Practice",
   "icons": [
     {
       "src": "/images/icons-192.png",
@@ -13,8 +13,8 @@
       "sizes": "148x148"
     },
   ],
-  "start_url": "./",
+  "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#3367D6"
-  "background_color": "#3367D6", 
+  "theme_color": "#3367D6",
+  "background_color": "#3367D6"
 }

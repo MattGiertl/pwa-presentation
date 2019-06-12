@@ -1,0 +1,11 @@
+self.addEventListener('install', event => {
+  // Cache static stuff
+});
+
+self.addEventListener('activate', event => {
+  // Delete old cached stuff
+});
+
+self.addEventListener('fetch', event => {
+  // Do cache magic with the requests
+});

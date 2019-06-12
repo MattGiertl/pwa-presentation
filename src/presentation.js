@@ -6,8 +6,6 @@ import {
   CodePane,
   Deck,
   Heading,
-  Layout,
-  Fill,
   ListItem,
   Link,
   List,
@@ -46,10 +44,14 @@ import manifestTab from './assets/manifest-tab.png';
 import serviceworkersTab from './assets/serviceworkers-tab.png';
 import storageTab from './assets/storage-tab.png';
 import androidInstallation from './assets/android-installation.gif';
+import iosInstallation from './assets/ios-installation.gif';
 
 import pwaLogo from './assets/pwa-logo.png';
+import pwaAppIcon from './assets/pwa-icon.png';
+import appShell from './assets/app-shell.jpg';
 
 require('normalize.css');
+require('./override.css');
 
 const theme = createTheme(
   {
@@ -74,12 +76,12 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck
-        transition={['zoom', 'slide']}
+        transition={['fade']}
         transitionDuration={500}
         theme={theme}
         progress="bar"
       >
-        <Slide transition={['zoom']} bgColor="primary">
+        <Slide transition={['zoom']}>
           <Heading size={1} fit lineHeight={1} textColor="secondary">
             Progressive Web Applications
           </Heading>
@@ -88,16 +90,16 @@ export default class Presentation extends React.Component {
           </Text>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary">
+        <Slide>
           <Heading size={3}>What is PWA?</Heading>
           <Appear>
-            <Text size={4} margin="30px 0 0" textColor="secondary">
+            <Text size={4} margin="30px 0 0">
               Native user experiences on the web
             </Text>
           </Appear>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary">
+        <Slide>
           <Heading size={3}>Why should you care?</Heading>
           <List>
             <Appear>
@@ -120,15 +122,15 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+        <Slide transition={['fade']} bgColor="primary">
           <Heading size={3}>PWA to the rescue!</Heading>
           <Appear>
-            <Text size={4} margin="30px 0 0" textColor="secondary">
+            <Text size={4} margin="30px 0 0">
               Speed
             </Text>
           </Appear>
           <Appear>
-            <Text size={4} margin="30px 0 0" textColor="secondary">
+            <Text size={4} margin="30px 0 0">
               Reliability
             </Text>
           </Appear>
@@ -167,10 +169,6 @@ export default class Presentation extends React.Component {
               <ListItem>Push notifications</ListItem>
             </Appear>
           </List>
-        </Slide>
-
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-          <Heading size={3}>Speed & reliability</Heading>
         </Slide>
 
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
@@ -279,33 +277,6 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-          <Heading size={3} margin="0 0 40px 0">
-            Browser support
-          </Heading>
-          <Layout>
-            <Fill>
-              <Heading size={4}>Desktop</Heading>
-              <List>
-                <Appear>
-                  <ListItem>All except IE</ListItem>
-                </Appear>
-              </List>
-            </Fill>
-            <Fill>
-              <Heading size={4}>Mobile</Heading>
-              <List>
-                <Appear>
-                  <ListItem>All major browsers</ListItem>
-                </Appear>
-                <Appear>
-                  <ListItem>iOS Safari >= 11.3</ListItem>
-                </Appear>
-              </List>
-            </Fill>
-          </Layout>
-        </Slide>
-
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3}>Service worker lifecycle</Heading>
           <List>
             <Appear>
@@ -320,26 +291,9 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+        <Slide transition={['fade']}>
           <Heading size={3} margin="20px 0">
-            Register
-          </Heading>
-          <List>
-            <Appear>
-              <ListItem>Check for browser support</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Wait until page is loaded</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Specify a path to service worker script</ListItem>
-            </Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-          <Heading size={3} margin="20px 0">
-            Register
+            Registration
           </Heading>
           <CodePane
             textSize="24px"
@@ -347,47 +301,61 @@ export default class Presentation extends React.Component {
             theme="external"
             source={require('./assets/serviceWorkerRegistration.js.example')}
           />
-          <Text italic textSize="30px" margin="20px">
+          <Code textSize="30px" margin="20px">
             app.js
+          </Code>
+        </Slide>
+
+        <Slide transition={['fade']}>
+          <Heading size={3} margin="40px 0">
+            Registration
+          </Heading>
+          <Text size={4} margin="40px 0">
+            With Create React App
           </Text>
+          <CodePane
+            textSize="24px"
+            lang="js"
+            theme="external"
+            source={`serviceWorker.register();`}
+          />
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-          <Heading size={3} margin="20px 0">
-            Install
-          </Heading>
-          <List>
-            <Appear>
-              <ListItem>Good time to cache static assets (app shell)</ListItem>
-            </Appear>
-          </List>
+        <Slide transition={['fade']}>
+          <Code textSize="60px">service-worker.js</Code>
         </Slide>
-
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+        <Slide transition={['fade']}>
           <Heading size={3} margin="20px 0">
-            Install
+            Installation
           </Heading>
+          <Text margin="20px 0">Good time to cache static assets</Text>
           <CodePane
             textSize="24px"
             lang="js"
             theme="external"
             source={require('./assets/serviceWorkerInstallation.js.example')}
           />
-          <Text italic textSize="30px" margin="20px">
+          <Code textSize="30px" margin="20px">
             service-worker.js
-          </Text>
+          </Code>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+        <Slide transition={['fade']}>
+          <Image src={appShell} />
+        </Slide>
+
+        <Slide transition={['fade']}>
           <Heading size={3} margin="20px 0">
-            Activate
+            Activation
           </Heading>
           <List>
             <Appear>
-              <ListItem>Static assets have been cached</ListItem>
+              <ListItem>Service worker will activate after refresh</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Ready to take control after refresh</ListItem>
+              <ListItem>
+                Can use <Code>clients.claim();</Code> to activate immediately
+              </ListItem>
             </Appear>
             <Appear>
               <ListItem>
@@ -397,70 +365,51 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+        <Slide transition={['fade']}>
           <Heading size={3} margin="20px 0">
             Serve cached data
           </Heading>
-          <List>
-            <Appear>
-              <ListItem>
-                Use the <Code>fetch</Code> listener to intercept requests
-              </ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Decide how to handle the response</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Several caching strategies</ListItem>
-            </Appear>
-          </List>
+          <Appear>
+            <div>
+              <Text margin="20px 0">
+                Cache-first strategy – good for static assets
+              </Text>
+              <CodePane
+                textSize="24px"
+                lang="js"
+                theme="external"
+                source={require('./assets/serviceWorkerFetchCacheFirst.js.example')}
+              />
+              <Code textSize="30px" margin="20px">
+                service-worker.js
+              </Code>
+            </div>
+          </Appear>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+        <Slide transition={['fade']}>
           <Heading size={3} margin="20px 0">
-            Serve cached data
+            Service worker file
           </Heading>
-          <Text margin="20px 0">
-            Cache-first strategy – good for static assets
-          </Text>
           <CodePane
             textSize="24px"
             lang="js"
             theme="external"
-            source={require('./assets/serviceWorkerFetchCacheFirst.js.example')}
+            source={require('./assets/serviceWorkerListeners.js.example')}
           />
-          <Text italic textSize="30px" margin="20px">
+          <Code textSize="30px" margin="20px">
             service-worker.js
-          </Text>
+          </Code>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+        <Slide transition={['fade']}>
           <Heading size={3} margin="20px 0">
-            Workbox
+            What about caching dynamic data?
           </Heading>
-          <Appear>
-            <Text textSize="35px">
-              Set of libraries to make life easier when building PWAs
-            </Text>
-          </Appear>
           <List>
-            <Appear>
-              <ListItem>Precaching with autogenerated cache lists</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Built-in cache strategies</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Request routing</ListItem>
-            </Appear>
+            {this.renderListItem("Service worker")}
+            {this.renderListItem(<>Redux Persist<Appear><span> – with additional offline detection & error handling</span></Appear></>)}
           </List>
-          <Appear>
-            <div>
-              <Link href="https://developers.google.com/web/tools/workbox/">
-                https://developers.google.com/web/tools/workbox/
-              </Link>
-            </div>
-          </Appear>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
@@ -471,37 +420,66 @@ export default class Presentation extends React.Component {
             <Appear>
               <ListItem>
                 Make sure <Code>service-worker.js</Code> is not cached or
-                renamed
+                renamed!
               </ListItem>
             </Appear>
             <Appear>
-              <ListItem>Update the file with new static assets</ListItem>
+              <ListItem>
+                Update the file with new static assets
+                <Appear>
+                  <span>
+                    <br />
+                    ...or let the framework do it for you
+                  </span>
+                </Appear>
+              </ListItem>
             </Appear>
           </List>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+        <Slide transition={['fade']}>
           <Heading size={3} margin="20px 0">
-            And how does the browser handle it?
+            React integration
           </Heading>
           <List>
             <Appear>
-              <ListItem>Browser detects an update</ListItem>
+              <ListItem>Create React App uses Workbox</ListItem>
             </Appear>
             <Appear>
-              <ListItem>New worker enters the "waiting" state</ListItem>
+              <ListItem>Precache manifest generated automatically</ListItem>
             </Appear>
             <Appear>
-              <ListItem>
-                Old app must be closed to activate new worker – not very
-                convenient
-              </ListItem>
+              <ListItem>Static asset caching by default</ListItem>
             </Appear>
-            <Appear>
-              <ListItem>
-                Can we just <Code>skipWaiting();</Code> ?
-              </ListItem>
-            </Appear>
+          </List>
+        </Slide>
+
+        <Slide transition={['fade']}>
+          <Heading size={3}>Updating the app in the browser</Heading>
+        </Slide>
+
+        <Slide transition={['fade']}>
+          <Heading size={4} margin="20px 0">
+            When does the browser check for updates?
+          </Heading>
+          <List>
+            {this.renderListItem("On page reload")}
+            {this.renderListItem("When you close and reopen the app")}
+            {this.renderListItem("User goes to a different page – does not work in SPA, workaround needed")}
+            {this.renderListItem("Every 24 hours")}
+          </List>
+          <Appear><div><Text margin="50px 0">Make sure your service worker is NOT cached!</Text></div></Appear>
+        </Slide>
+
+        <Slide transition={['fade']}>
+          <Heading size={4} margin="20px 0">
+            What happens next...
+          </Heading>
+          <List>
+            {this.renderListItem('New worker enters the “waiting” state')}
+            {this.renderListItem("Refreshing the page is not enough!")}
+            {this.renderListItem("Old app must be closed to activate the new worker")}
+            {this.renderListItem("Solution: App refresh popup")}
           </List>
         </Slide>
 
@@ -512,32 +490,32 @@ export default class Presentation extends React.Component {
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Image src={updatingServiceWorker} />
           <Link href="https://deanhume.com/displaying-a-new-version-available-progressive-web-app/">
-            deanhume.com/displaying-a-new-version-available-progressive-web-app/
+            https://deanhume.com/displaying-a-new-version-available-progressive-web-app/
           </Link>
         </Slide>
 
-        <Slide>
-          <Heading>Let's ENGAGE</Heading>
+        <Slide transition={['fade']}>
+          <Heading size={2}>Let's ENGAGE</Heading>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+        <Slide transition={['fade']} bgColor="primary">
           <Heading size={3} margin="20px 0">
             Web App Manifest
           </Heading>
           <List>
-            {this.renderListItem('Simple JSON File')}
-            {this.renderListItem('Controls the App appearance after launch')}
-            {this.renderListItem('Contains basic information about the App')}
+            {this.renderListItem('Simple JSON file')}
+            {this.renderListItem('Controls the app appearance after launch')}
+            {this.renderListItem('Contains basic information about the app')}
           </List>
         </Slide>
 
-        <Slide>
+        <Slide transition={['fade']}>
           <Heading size={3} margin="20px 0">
             A typical manifest looks like...
           </Heading>
           <Appear>
             <CodePane
-              textSize="15px"
+              textSize="20px"
               lang="js"
               theme="external"
               source={require('./assets/manifest.json.example')}
@@ -545,23 +523,23 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
 
-        <Slide>
-          <Heading size={4} margin="20px 0">
+        <Slide transition={['fade']}>
+          <Heading size={3} margin="20px 0">
             Not everything is as awesome though
           </Heading>
           <List>
             {this.renderListItem('Incompatible with iOS (for now)')}
-            {this.renderListItem('You need to use iOS specific meta tags')}
+            {this.renderListItem('You need to use iOS-specific meta tags')}
           </List>
         </Slide>
 
-        <Slide>
-          <Heading size={4} margin="20px 0">
+        <Slide transition={['fade']}>
+          <Heading size={3} margin="20px 0">
             iOS meta tags
           </Heading>
           <Appear>
             <CodePane
-              textSize="15px"
+              textSize="17px"
               lang="html"
               theme="external"
               source={require('./assets/ios-tags.html.example')}
@@ -569,76 +547,84 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
 
-        <Slide>
-          <Heading margin="20px 0">App Installation</Heading>
+        <Slide transition={['fade']}>
+          <Heading size={3} margin="20px 0">
+            App installation
+          </Heading>
           <List>
             {this.renderListItem(
-              'Add To Homescreen Banner makes it easy to install the app',
+              'Add to Home Screen banner makes it easy to install the app',
             )}
             {this.renderListItem('Informs the user of our PWAs existence!')}
             {this.renderListItem("No App Store needed (if you don't want to)")}
             {this.renderListItem(
-              'You need to meet certain conditions, for the banner to appear',
+              'You need to meet certain conditions for the banner to appear',
             )}
           </List>
         </Slide>
 
-        <Slide>
+        <Slide transition={['fade']}>
           <Heading size={3}>Conditions</Heading>
           <List>
             {this.renderListItem('The Web App is not already installed (duh)')}
             {this.renderListItem(
-              'App manifest is present, with icons, start url and name',
+              'App manifest is present, with icons, start URL and name',
             )}
-            {this.renderListItem('The app is server over HTTPS')}
+            {this.renderListItem('The app is served over HTTPS')}
             {this.renderListItem('Successful Service Worker registration')}
           </List>
         </Slide>
 
-        <Slide>
-          <Heading size="4" margin="0 0 20px 0">
-            App Install Banner in ACTION
+        <Slide transition={['fade']}>
+          <Heading size={4} margin="0 0 20px 0">
+            App install banner in ACTION
           </Heading>
           <Appear>
             <Image src={androidInstallation} />
           </Appear>
         </Slide>
 
-        <Slide>
-          <Heading>What about iOS?</Heading>
-          <Text>Well...</Text>
+        <Slide transition={['fade']}>
+          <Heading size={3}>What about iOS?</Heading>
+          <Appear>
+            <Text>Well...</Text>
+          </Appear>
           <List>
             {this.renderListItem('Not supported (yet!)')}
             {this.renderListItem('The banner needs to be implemented manually')}
-            {this.renderListItem('The App needs to be installed manually')}
+            {this.renderListItem('The app needs to be installed manually')}
+            {this.renderListItem('Only from Safari')}
           </List>
         </Slide>
 
-        <Slide>
+        <Slide transition={['fade']}>
           <Heading size={3} margin="0 0 50px 0">
-            iOS Installation Process
+            iOS installation process
           </Heading>
-          <Image src="https://thumbs.gfycat.com/EasygoingPartialIrishwaterspaniel-size_restricted.gif" />
+          <Image src={iosInstallation} />
         </Slide>
 
-        <Slide>
-          <Heading margin="0 0 50px 0">Your turn</Heading>
-          <Text margin="0 0 20px 0">Install the PRESENTATION itself ;)</Text>
-          <Link href="https://pwa-in-practice.web.app/">
-            https://pwa-in-practice.web.app/
+        <Slide transition={['fade']}>
+          <Heading size={3} margin="0 0 50px 0">
+            Your turn!
+          </Heading>
+          <Text margin="0 0 50px 0">Install the PRESENTATION itself ;)</Text>
+          <Image src={pwaAppIcon} />
+          <Link textSize="50px" href="https://pwa-in-practice.web.app">
+            pwa-in-practice.web.app
           </Link>
         </Slide>
 
-        <Slide>
-          <Heading>Testing and Tooling</Heading>
+        <Slide transition={['fade']}>
+          <Heading size={3}>Testing and tooling</Heading>
           <List>
             {this.renderListItem('Cypress, Selenium for automation')}
             {this.renderListItem('Lighthouse')}
           </List>
         </Slide>
 
-        <Slide>
-          <Heading size={2}>Lighthouse</Heading>
+        <Slide transition={['fade']}>
+          <Heading size={3}>Lighthouse</Heading>
           <List>
             {this.renderListItem(
               'Automated auditing tool for improving the quality of web pages',
@@ -649,8 +635,8 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <Slide>
-          <Heading size={2}>Lighthouse Audit types</Heading>
+        <Slide transition={['fade']}>
+          <Heading size={3}>Lighthouse audit types</Heading>
           <List>
             {this.renderListItem('Mobile/Desktop responsiveness')}
             {this.renderListItem('Performance')}
@@ -662,18 +648,18 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <Slide>
-          <Heading size={4}>Lighthouse - initial setup</Heading>
+        <Slide transition={['fade']}>
+          <Heading size={4}>Lighthouse – initial setup</Heading>
           <Image src={lighthouseTab} />
         </Slide>
 
-        <Slide>
+        <Slide transition={['fade']}>
           <Heading size={4}>Audit Results</Heading>
           <Image src={lighthouseResults} />
         </Slide>
 
-        <Slide>
-          <Heading size={4}>Audit Results 2</Heading>
+        <Slide transition={['fade']}>
+          <Heading size={4}>Audit Results</Heading>
           <List>
             {this.renderListItem(
               'Provides detailed information about each section',
@@ -688,50 +674,33 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading>Chrome Dev Tools</Heading>
+          <Heading size={3}>Chrome Dev Tools</Heading>
           <List>
             {this.renderListItem('Your best friend for PWAs')}
             {this.renderListItem(
               'Offers insight into critical areas of your app',
             )}
-            {this.renderListItem('Application Tab in Chrome :)')}
+            {this.renderListItem('Application tab in Chrome :)')}
           </List>
         </Slide>
 
         <Slide>
-          <Heading>Manifest Section</Heading>
-          <List>
-            {this.renderListItem('Information about the App Manifest')}
-            {this.renderListItem('Shows you your app manifest settings')}
-            {this.renderListItem('Checks for imperfections')}
-          </List>
-        </Slide>
-
-        <Slide>
-          <Heading size={4}>Manifest Section 2</Heading>
+          <Heading size={4}>Manifest section</Heading>
           <Image src={manifestTab} />
         </Slide>
 
         <Slide>
-          <Heading>Service Workers Tab</Heading>
-          <List>
-            {this.renderListItem('Network simulation')}
-            {this.renderListItem('Lifecycle manipulation')}
-          </List>
-        </Slide>
-
-        <Slide>
-          <Heading size={3}>Service Workers Tab 2</Heading>
+          <Heading size={4}>Service Workers section</Heading>
           <Image src={serviceworkersTab} />
         </Slide>
 
         <Slide>
-          <Heading>Storage Tab</Heading>
+          <Heading size={4}>Storage Tab</Heading>
           <Image src={storageTab} />
         </Slide>
 
         <Slide>
-          <Heading>Reaching the user</Heading>
+          <Heading size={3}>Reaching the users</Heading>
           <List>
             {this.renderListItem('Keep it web only')}
             {this.renderListItem('Deploy it to an App Store!')}
@@ -739,7 +708,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading>Store Deployment</Heading>
+          <Heading size={4}>App Store deployment</Heading>
           <List>
             {this.renderListItem('Play Store integration since 2018')}
             {this.renderListItem('No iOS support')}
@@ -747,32 +716,34 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading>Play Store Criteria</Heading>
+          <Heading size={4}>Play Store criteria</Heading>
           <List>
-            {this.renderListItem('Passing the current PWA Criteria')}
+            {this.renderListItem('Passing the current PWA criteria')}
             {this.renderListItem('Performance score of 80/100 from Lighthouse')}
             {this.renderListItem('All current Play Store rules')}
           </List>
         </Slide>
 
+        {/*<Slide>*/}
+        {/*  <Heading size={4}>So it's a hybrid app, right?</Heading>*/}
+        {/*  <List>*/}
+        {/*    {this.renderListItem("Nope, there's no APK file")}*/}
+        {/*    {this.renderListItem('TWA')}*/}
+        {/*  </List>*/}
+        {/*</Slide>*/}
+
         <Slide>
-          <Heading>So it's a hybrid app, right?</Heading>
-          <List>
-            {this.renderListItem("Nope, there's no APK file")}
-            {this.renderListItem('TWA')}
-          </List>
+          <Heading size={4}>
+            So... which approach should I use for my app?
+          </Heading>
         </Slide>
 
         <Slide>
-          <Heading>So.. which approach should I use for my app?</Heading>
+          <Heading size={3}>DEPENDS...</Heading>
         </Slide>
 
         <Slide>
-          <Heading>DEPENDS...</Heading>
-        </Slide>
-
-        <Slide>
-          <Heading>Going PWA</Heading>
+          <Heading size={4}>Going PWA</Heading>
           <List>
             {this.renderListItem('Easy to implement (really)')}
             {this.renderListItem('Framework agnostic')}
@@ -781,14 +752,25 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading>(NOT) Going PWA</Heading>
+          <Heading size={4}>(NOT) going PWA</Heading>
           <List>
             {this.renderListItem('Limited native SDK functionality')}
             {this.renderListItem('Not suited for games')}
             {this.renderListItem(
               'Not suited for apps that deal with heavy computation',
             )}
-            {this.renderListItem('bad iOS support (until now, kinda)')}
+            {this.renderListItem('Bad iOS support (until now, kinda)')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={4}>iOS limitations</Heading>
+          <List>
+            {this.renderListItem('No push notifications')}
+            {this.renderListItem('No background sync')}
+            {this.renderListItem('No orientation lock')}
+            {this.renderListItem('(< iOS 12.2) app sessions not persisted')}
+            {this.renderListItem('(< iOS 12.2) no navigation gestures')}
           </List>
         </Slide>
 
