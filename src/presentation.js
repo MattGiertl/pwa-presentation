@@ -723,13 +723,13 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <Slide>
-          <Heading size={4}>So it's a hybrid app, right?</Heading>
-          <List>
-            {this.renderListItem("Nope, there's no APK file")}
-            {this.renderListItem('TWA')}
-          </List>
-        </Slide>
+        {/*<Slide>*/}
+        {/*  <Heading size={4}>So it's a hybrid app, right?</Heading>*/}
+        {/*  <List>*/}
+        {/*    {this.renderListItem("Nope, there's no APK file")}*/}
+        {/*    {this.renderListItem('TWA')}*/}
+        {/*  </List>*/}
+        {/*</Slide>*/}
 
         <Slide>
           <Heading size={4}>
