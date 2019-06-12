@@ -115,7 +115,7 @@ export default class Presentation extends React.Component {
               <ListItem>Native apps deployed to an App Store</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Going native may not a viable solution</ListItem>
+              <ListItem>Going native may not be a viable solution</ListItem>
             </Appear>
           </List>
         </Slide>
