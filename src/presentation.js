@@ -38,6 +38,15 @@ import sw12cacheResponseOffline from './assets/sw12cacheResponseOffline.png';
 import newVersionAvailablePopup from './assets/newVersionAvailablePopup.jpg';
 import updatingServiceWorker from './assets/updatingServiceWorker.jpg';
 
+import lighthouseTab from './assets/lighthouse-tab.png';
+import lighthouseResults from './assets/lighthouse-results.png';
+import lighthouseFailed from './assets/lighthouse-failed.png';
+
+import manifestTab from './assets/manifest-tab.png';
+import serviceworkersTab from './assets/serviceworkers-tab.png';
+import storageTab from './assets/storage-tab.png';
+import androidInstallation from './assets/android-installation.gif';
+
 require('normalize.css');
 
 const theme = createTheme(
@@ -164,45 +173,59 @@ export default class Presentation extends React.Component {
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3}>Speed & reliability</Heading>
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw1} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw2request} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw3response} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw1} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw4serviceWorker} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw5serviceWorkerRequest} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw6serviceWorkerResponse} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw4serviceWorker} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw7cache} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw8cacheRequest} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw9cacheLookup} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw10cacheRetrieve} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw11cacheResponse} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw12cacheResponseOffline} />
         </Slide>
@@ -496,11 +519,123 @@ export default class Presentation extends React.Component {
             deanhume.com/displaying-a-new-version-available-progressive-web-app/
           </Link>
         </Slide>
+
         <Slide>
           <Heading>Reaching the user</Heading>
           <List>
             {this.renderListItem('Keep it web only')}
             {this.renderListItem('Deploy it to an App Store!')}
+          </List>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+          <Heading size={3} margin="20px 0">
+            Web App Manifest
+          </Heading>
+          <List>
+            {this.renderListItem('Simple JSON File')}
+            {this.renderListItem('Controls the App appearance after launch')}
+            {this.renderListItem('Contains basic information about the App')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={3} margin="20px 0">
+            A typical manifest looks like...
+          </Heading>
+          <Appear>
+            <CodePane
+              textSize="15px"
+              lang="js"
+              theme="external"
+              source={require('./assets/manifest.json.example')}
+            />
+          </Appear>
+        </Slide>
+
+        <Slide>
+          <Heading size={4} margin="20px 0">
+            Not everything is as awesome though
+          </Heading>
+          <List>
+            {this.renderListItem('Incompatible with iOS (for now)')}
+            {this.renderListItem('You need to use iOS specific meta tags')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={4} margin="20px 0">
+            iOS meta tags
+          </Heading>
+          <Appear>
+            <CodePane
+              textSize="15px"
+              lang="html"
+              theme="external"
+              source={require('./assets/ios-tags.html.example')}
+            />
+          </Appear>
+        </Slide>
+
+        <Slide>
+          <Heading size={4} margin="20px 0">
+            App Installation
+          </Heading>
+          <List>
+            {this.renderListItem(
+              'Add To Homescreen Banner makes it easy to install the app',
+            )}
+            {this.renderListItem('Informs the user of our PWAs existence!')}
+            {this.renderListItem("No App Store needed (if you don't want to)")}
+            {this.renderListItem(
+              'You need to meet certain conditions, for the banner to appear',
+            )}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={3}>Conditions</Heading>
+          <List>
+            {this.renderListItem('The Web App is not already installed (duh)')}
+            {this.renderListItem(
+              'App manifest is present, with icons, start url and name',
+            )}
+            {this.renderListItem('The app is server over HTTPS')}
+            {this.renderListItem('Successful Service Worker registration')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size="4" margin="0 0 20px 0">
+            App Install Banner in ACTION
+          </Heading>
+          <Appear>
+            <Image src={androidInstallation} />
+          </Appear>
+        </Slide>
+
+        <Slide>
+          <Heading>What about iOS?</Heading>
+          <Text>Well...</Text>
+          <List>
+            {this.renderListItem('Not supported (yet!)')}
+            {this.renderListItem('The banner needs to be implemented manually')}
+            {this.renderListItem('The App needs to be installed manually')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={3} margin="0 0 50px 0">
+            iOS Installation Process
+          </Heading>
+          <Image src="https://thumbs.gfycat.com/EasygoingPartialIrishwaterspaniel-size_restricted.gif" />
+        </Slide>
+
+        <Slide>
+          <Heading size={2}>Testing and Tooling</Heading>
+          <List>
+            {this.renderListItem('Cypress, Selenium for automation')}
+            {this.renderListItem('Lighthouse')}
           </List>
         </Slide>
 
@@ -513,10 +648,35 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
+          <Heading size={2}>Lighthouse</Heading>
+          <List>
+            {this.renderListItem(
+              'Automated auditing tool for improving the quality of web pages',
+            )}
+            {this.renderListItem('Accessible via Chrome Dev Tools')}
+            {this.renderListItem('Supported on any kind of web pages')}
+            {this.renderListItem('Includes many different types of audits')}
+          </List>
+        </Slide>
+
+        <Slide>
           <Heading>So it's a hybrid app right?</Heading>
           <List>
             {this.renderListItem("Nope, there's no APK file")}
             {this.renderListItem('TWA')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={2}>Lighthouse Audit types</Heading>
+          <List>
+            {this.renderListItem('Mobile/Desktop responsiveness')}
+            {this.renderListItem('Performance')}
+            {this.renderListItem('PWA checklist')}
+            {this.renderListItem('Best Practices')}
+            {this.renderListItem('Accessibility')}
+            {this.renderListItem('SEO')}
+            {this.renderListItem('Network Simulation')}
           </List>
         </Slide>
 
@@ -527,6 +687,71 @@ export default class Presentation extends React.Component {
             {this.renderListItem('Performance score of 80/100 from Lighthouse')}
             {this.renderListItem('All Curren Play Store rules')}
           </List>
+          <Heading size={4}>Lighthouse - initial setup</Heading>
+          <Image src={lighthouseTab} />
+        </Slide>
+
+        <Slide>
+          <Heading size={4}>Audit Results</Heading>
+          <Image src={lighthouseResults} />
+        </Slide>
+
+        <Slide>
+          <Heading size={4}>Audit Results 2</Heading>
+          <List>
+            {this.renderListItem(
+              'Provides detailed information about each section',
+            )}
+            {this.renderListItem(
+              'Shows you the exact spot where you can improve your app',
+            )}
+            <Appear>
+              <Image src={lighthouseFailed} />
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading>Chrome Dev Tools</Heading>
+          <List>
+            {this.renderListItem('Your best friend for PWAs')}
+            {this.renderListItem(
+              'Offers insight into critical areas of your app',
+            )}
+            {this.renderListItem('Application Tab in Chrome :)')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading>Manifest Section</Heading>
+          <List>
+            {this.renderListItem('Information about the App Manifest')}
+            {this.renderListItem('Shows you your app manifest settings')}
+            {this.renderListItem('Checks for imperfections')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={4}>Manifest Section 2</Heading>
+          <Image src={manifestTab} />
+        </Slide>
+
+        <Slide>
+          <Heading>Service Workers Tab</Heading>
+          <List>
+            {this.renderListItem('Network simulation')}
+            {this.renderListItem('Lifecycle manipulation')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={3}>Service Workers Tab 2</Heading>
+          <Image src={serviceworkersTab} />
+        </Slide>
+
+        <Slide>
+          <Heading>Storage Tab</Heading>
+          <Image src={storageTab} />
         </Slide>
 
         <Slide>
@@ -548,14 +773,16 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <Slide>(NOT) Going PWA</Slide>
-        <List>
-          {this.renderListItem('Limited native SDK functionality')}
-          {this.renderListItem('Not suited for games')}
-          {this.renderListItem(
-            'Not suited apps that deal with heavy computation',
-          )}
-        </List>
+        <Slide>
+          <Heading>(NOT) Going PWA</Heading>
+          <List>
+            {this.renderListItem('Limited native SDK functionality')}
+            {this.renderListItem('Not suited for games')}
+            {this.renderListItem(
+              'Not suited for apps that deal with heavy computation',
+            )}
+          </List>
+        </Slide>
       </Deck>
     );
   }
