@@ -171,10 +171,6 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-          <Heading size={3}>Speed & reliability</Heading>
-        </Slide>
-
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw1} />
         </Slide>
@@ -406,6 +402,16 @@ export default class Presentation extends React.Component {
           </Code>
         </Slide>
 
+        <Slide transition={['fade']}>
+          <Heading size={3} margin="20px 0">
+            What about caching dynamic data?
+          </Heading>
+          <List>
+            {this.renderListItem("Service worker")}
+            {this.renderListItem(<>Redux Persist<Appear><span> – with additional offline detection & error handling</span></Appear></>)}
+          </List>
+        </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3} margin="20px 0">
             How to handle app updates?
@@ -448,25 +454,32 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-          <Heading size={3} margin="20px 0">
-            And how does the browser handle it?
+        <Slide transition={['fade']}>
+          <Heading size={3}>Updating the app in the browser</Heading>
+        </Slide>
+
+        <Slide transition={['fade']}>
+          <Heading size={4} margin="20px 0">
+            When does the browser check for updates?
           </Heading>
           <List>
-            <Appear>
-              <ListItem>Browser detects an update</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>New worker enters the "waiting" state</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Refreshing the page is not enough!</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>
-                Old app must be closed to activate the new worker
-              </ListItem>
-            </Appear>
+            {this.renderListItem("On page reload")}
+            {this.renderListItem("When you close and reopen the app")}
+            {this.renderListItem("User goes to a different page – does not work in SPA, workaround needed")}
+            {this.renderListItem("Every 24 hours")}
+          </List>
+          <Appear><div><Text margin="50px 0">Make sure your service worker is NOT cached!</Text></div></Appear>
+        </Slide>
+
+        <Slide transition={['fade']}>
+          <Heading size={4} margin="20px 0">
+            What happens next...
+          </Heading>
+          <List>
+            {this.renderListItem('New worker enters the "waiting" state')}
+            {this.renderListItem("Refreshing the page is not enough!")}
+            {this.renderListItem("Old app must be closed to activate the new worker")}
+            {this.renderListItem("Solution: App refresh popup")}
           </List>
         </Slide>
 
