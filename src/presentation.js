@@ -520,14 +520,6 @@ export default class Presentation extends React.Component {
           </Link>
         </Slide>
 
-        <Slide>
-          <Heading>Reaching the user</Heading>
-          <List>
-            {this.renderListItem('Keep it web only')}
-            {this.renderListItem('Deploy it to an App Store!')}
-          </List>
-        </Slide>
-
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3} margin="20px 0">
             Web App Manifest
@@ -660,14 +652,6 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading>So it's a hybrid app right?</Heading>
-          <List>
-            {this.renderListItem("Nope, there's no APK file")}
-            {this.renderListItem('TWA')}
-          </List>
-        </Slide>
-
-        <Slide>
           <Heading size={2}>Lighthouse Audit types</Heading>
           <List>
             {this.renderListItem('Mobile/Desktop responsiveness')}
@@ -678,17 +662,6 @@ export default class Presentation extends React.Component {
             {this.renderListItem('SEO')}
             {this.renderListItem('Network Simulation')}
           </List>
-        </Slide>
-
-        <Slide>
-          <Heading>Play Store Criteria</Heading>
-          <List>
-            {this.renderListItem('Passing the current PWA Criteria')}
-            {this.renderListItem('Performance score of 80/100 from Lighthouse')}
-            {this.renderListItem('All Curren Play Store rules')}
-          </List>
-          <Heading size={4}>Lighthouse - initial setup</Heading>
-          <Image src={lighthouseTab} />
         </Slide>
 
         <Slide>
@@ -755,7 +728,34 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading>So which approach should I use for my app?</Heading>
+          <Heading>Reaching the user</Heading>
+          <List>
+            {this.renderListItem('Keep it web only')}
+            {this.renderListItem('Deploy it to an App Store!')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading>Play Store Criteria</Heading>
+          <List>
+            {this.renderListItem('Passing the current PWA Criteria')}
+            {this.renderListItem('Performance score of 80/100 from Lighthouse')}
+            {this.renderListItem('All current Play Store rules')}
+          </List>
+          <Heading size={4}>Lighthouse - initial setup</Heading>
+          <Image src={lighthouseTab} />
+        </Slide>
+
+        <Slide>
+          <Heading>So it's a hybrid app right?</Heading>
+          <List>
+            {this.renderListItem("Nope, there's no APK file")}
+            {this.renderListItem('TWA')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading>So.. which approach should I use for my app?</Heading>
         </Slide>
 
         <Slide>
