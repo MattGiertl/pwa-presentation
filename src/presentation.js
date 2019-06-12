@@ -38,6 +38,8 @@ import sw12cacheResponseOffline from './assets/sw12cacheResponseOffline.png';
 import newVersionAvailablePopup from './assets/newVersionAvailablePopup.jpg';
 import updatingServiceWorker from './assets/updatingServiceWorker.jpg';
 
+import androidInstallation from './assets/android-installation.gif';
+
 require('normalize.css');
 
 const theme = createTheme(
@@ -54,6 +56,12 @@ const theme = createTheme(
 );
 
 export default class Presentation extends React.Component {
+  renderListItem = text => (
+    <Appear>
+      <ListItem padding="0 0 10px 0">{text}</ListItem>
+    </Appear>
+  );
+
   render() {
     return (
       <Deck
@@ -158,45 +166,59 @@ export default class Presentation extends React.Component {
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3}>Speed & reliability</Heading>
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw1} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw2request} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw3response} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw1} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw4serviceWorker} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw5serviceWorkerRequest} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw6serviceWorkerResponse} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw4serviceWorker} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw7cache} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw8cacheRequest} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw9cacheLookup} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw10cacheRetrieve} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw11cacheResponse} />
         </Slide>
+
         <Slide transition={['none']} bgColor="primary" textColor="secondary">
           <Image src={sw12cacheResponseOffline} />
         </Slide>
@@ -365,7 +387,9 @@ export default class Presentation extends React.Component {
               <ListItem>Ready to take control after refresh</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Good place to remove cached assets from previous versions</ListItem>
+              <ListItem>
+                Good place to remove cached assets from previous versions
+              </ListItem>
             </Appear>
           </List>
         </Slide>
@@ -376,7 +400,9 @@ export default class Presentation extends React.Component {
           </Heading>
           <List>
             <Appear>
-              <ListItem>Use the <Code>fetch</Code> listener to intercept requests</ListItem>
+              <ListItem>
+                Use the <Code>fetch</Code> listener to intercept requests
+              </ListItem>
             </Appear>
             <Appear>
               <ListItem>Decide how to handle the response</ListItem>
@@ -391,7 +417,9 @@ export default class Presentation extends React.Component {
           <Heading size={3} margin="20px 0">
             Serve cached data
           </Heading>
-          <Text margin="20px 0">Cache-first strategy – good for static assets</Text>
+          <Text margin="20px 0">
+            Cache-first strategy – good for static assets
+          </Text>
           <CodePane
             textSize="24px"
             lang="js"
@@ -423,7 +451,13 @@ export default class Presentation extends React.Component {
               <ListItem>Request routing</ListItem>
             </Appear>
           </List>
-          <Appear><div><Link href="https://developers.google.com/web/tools/workbox/">https://developers.google.com/web/tools/workbox/</Link></div></Appear>
+          <Appear>
+            <div>
+              <Link href="https://developers.google.com/web/tools/workbox/">
+                https://developers.google.com/web/tools/workbox/
+              </Link>
+            </div>
+          </Appear>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
@@ -432,7 +466,10 @@ export default class Presentation extends React.Component {
           </Heading>
           <List>
             <Appear>
-              <ListItem>Make sure <Code>service-worker.js</Code> is not cached or renamed</ListItem>
+              <ListItem>
+                Make sure <Code>service-worker.js</Code> is not cached or
+                renamed
+              </ListItem>
             </Appear>
             <Appear>
               <ListItem>Update the file with new static assets</ListItem>
@@ -452,10 +489,15 @@ export default class Presentation extends React.Component {
               <ListItem>New worker enters the "waiting" state</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Old app must be closed to activate new worker – not very convenient</ListItem>
+              <ListItem>
+                Old app must be closed to activate new worker – not very
+                convenient
+              </ListItem>
             </Appear>
             <Appear>
-              <ListItem>Can we just <Code>skipWaiting();</Code> ?</ListItem>
+              <ListItem>
+                Can we just <Code>skipWaiting();</Code> ?
+              </ListItem>
             </Appear>
           </List>
         </Slide>
@@ -466,9 +508,111 @@ export default class Presentation extends React.Component {
 
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Image src={updatingServiceWorker} />
-          <Link href="https://deanhume.com/displaying-a-new-version-available-progressive-web-app/">deanhume.com/displaying-a-new-version-available-progressive-web-app/</Link>
+          <Link href="https://deanhume.com/displaying-a-new-version-available-progressive-web-app/">
+            deanhume.com/displaying-a-new-version-available-progressive-web-app/
+          </Link>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+          <Heading size={3} margin="20px 0">
+            Web App Manifest
+          </Heading>
+          <List>
+            {this.renderListItem('Simple JSON File')}
+            {this.renderListItem('Controls the App appearance after launch')}
+            {this.renderListItem('Contains basic information about the App')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={3} margin="20px 0">
+            A typical manifest looks like...
+          </Heading>
+          <Appear>
+            <CodePane
+              textSize="15px"
+              lang="js"
+              theme="external"
+              source={require('./assets/manifest.json.example')}
+            />
+          </Appear>
+        </Slide>
+
+        <Slide>
+          <Heading size={4} margin="20px 0">
+            Not everything is as awesome though
+          </Heading>
+          <List>
+            {this.renderListItem('Incompatible with iOS (for now)')}
+            {this.renderListItem('You need to use iOS specific meta tags')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={4} margin="20px 0">
+            iOS meta tags
+          </Heading>
+          <Appear>
+            <CodePane
+              textSize="15px"
+              lang="html"
+              theme="external"
+              source={require('./assets/ios-tags.html.example')}
+            />
+          </Appear>
+        </Slide>
+
+        <Slide>
+          <Heading size={4} margin="20px 0">
+            App Installation
+          </Heading>
+          <List>
+            {this.renderListItem(
+              'Add To Homescreen Banner makes it easy to install the app',
+            )}
+            {this.renderListItem('Informs the user of our PWAs existence!')}
+            {this.renderListItem("No App Store needed (if you don't want to)")}
+            {this.renderListItem(
+              'You need to meet certain conditions, for the banner to appear',
+            )}
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size={3}>Conditions</Heading>
+          <List>
+            {this.renderListItem('The Web App is not already installed (duh)')}
+            {this.renderListItem(
+              'App manifest is present, with icons, start url and name',
+            )}
+            {this.renderListItem('The app is server over HTTPS')}
+            {this.renderListItem('Successful Service Worker registration')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size="4" margin="0 0 20px 0">
+            App Install Banner in ACTION
+          </Heading>
+          <Appear>
+            <Image src={androidInstallation} />
+          </Appear>
+        </Slide>
+
+        <Slide>
+          <Heading>What about iOS?</Heading>
+          <Text>Well...</Text>
+          <List>
+            {this.renderListItem('Not supported (yet!)')}
+            {this.renderListItem('The banner needs to be implemented manually')}
+            {this.renderListItem('The App needs to be installed manually')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={3} margin="0 0 50px 0">
+            iOS Installation Process
+          </Heading>
+          <Image src="https://thumbs.gfycat.com/EasygoingPartialIrishwaterspaniel-size_restricted.gif" />
         </Slide>
       </Deck>
     );
