@@ -624,8 +624,8 @@ export default class Presentation extends React.Component {
         <Slide>
           <Heading margin="0 0 50px 0">Your turn</Heading>
           <Text margin="0 0 20px 0">Install the PRESENTATION itself ;)</Text>
-          <Link href="https://pwa-in-practice.firebaseapp.com/#/1">
-            https://pwa-in-practice.firebaseapp.com/#/1
+          <Link href="https://pwa-in-practice.web.app/">
+            https://pwa-in-practice.web.app/
           </Link>
         </Slide>
 
