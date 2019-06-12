@@ -499,7 +499,7 @@ export default class Presentation extends React.Component {
         <Slide>
           <Heading>Reaching the user</Heading>
           <List>
-            {this.renderListItem('keep it web only')}
+            {this.renderListItem('Keep it web only')}
             {this.renderListItem('Deploy it to an App Store!')}
           </List>
         </Slide>
@@ -508,7 +508,7 @@ export default class Presentation extends React.Component {
           <Heading>Store Deployment</Heading>
           <List>
             {this.renderListItem('Play Store integration since 2018')}
-            {this.renderListItem('no iOS support tho')}
+            {this.renderListItem('No iOS support')}
           </List>
         </Slide>
 
