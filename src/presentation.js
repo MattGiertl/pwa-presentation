@@ -85,7 +85,7 @@ export default class Presentation extends React.Component {
             In Practice
           </Heading>
           <Text margin="30px 0 0" textColor="tertiary">
-            Bc. Martin Kapal & Bc. Matúš Giertl
+            Martin Kapal & Matúš Giertl
           </Text>
         </Slide>
 
@@ -520,6 +520,14 @@ export default class Presentation extends React.Component {
           </Link>
         </Slide>
 
+        <Slide>
+          <Heading>Reaching the user</Heading>
+          <List>
+            {this.renderListItem('Keep it web only')}
+            {this.renderListItem('Deploy it to an App Store!')}
+          </List>
+        </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={3} margin="20px 0">
             Web App Manifest
@@ -584,6 +592,7 @@ export default class Presentation extends React.Component {
             )}
           </List>
         </Slide>
+
         <Slide>
           <Heading size={3}>Conditions</Heading>
           <List>
@@ -631,6 +640,14 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
+          <Heading>Store Deployment</Heading>
+          <List>
+            {this.renderListItem('Play Store integration since 2018')}
+            {this.renderListItem('No iOS support')}
+          </List>
+        </Slide>
+
+        <Slide>
           <Heading size={2}>Lighthouse</Heading>
           <List>
             {this.renderListItem(
@@ -639,6 +656,14 @@ export default class Presentation extends React.Component {
             {this.renderListItem('Accessible via Chrome Dev Tools')}
             {this.renderListItem('Supported on any kind of web pages')}
             {this.renderListItem('Includes many different types of audits')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading>So it's a hybrid app right?</Heading>
+          <List>
+            {this.renderListItem("Nope, there's no APK file")}
+            {this.renderListItem('TWA')}
           </List>
         </Slide>
 
@@ -656,6 +681,12 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
+          <Heading>Play Store Criteria</Heading>
+          <List>
+            {this.renderListItem('Passing the current PWA Criteria')}
+            {this.renderListItem('Performance score of 80/100 from Lighthouse')}
+            {this.renderListItem('All Curren Play Store rules')}
+          </List>
           <Heading size={4}>Lighthouse - initial setup</Heading>
           <Image src={lighthouseTab} />
         </Slide>
@@ -721,6 +752,36 @@ export default class Presentation extends React.Component {
         <Slide>
           <Heading>Storage Tab</Heading>
           <Image src={storageTab} />
+        </Slide>
+
+        <Slide>
+          <Heading>So which approach should I use for my app?</Heading>
+        </Slide>
+
+        <Slide>
+          <Heading>DEPENDS...</Heading>
+        </Slide>
+
+        <Slide>
+          <Heading>Going PWA</Heading>
+          <List>
+            {this.renderListItem('Get it to the marker real quick')}
+            {this.renderListItem('Brand promotion')}
+            {this.renderListItem('Easy to implement (really)')}
+            {this.renderListItem('Framework agnostic')}
+            {this.renderListItem('Google and Microsoft are pushing it forward')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading>(NOT) Going PWA</Heading>
+          <List>
+            {this.renderListItem('Limited native SDK functionality')}
+            {this.renderListItem('Not suited for games')}
+            {this.renderListItem(
+              'Not suited for apps that deal with heavy computation',
+            )}
+          </List>
         </Slide>
       </Deck>
     );
