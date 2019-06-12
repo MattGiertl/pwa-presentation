@@ -38,6 +38,13 @@ import sw12cacheResponseOffline from './assets/sw12cacheResponseOffline.png';
 import newVersionAvailablePopup from './assets/newVersionAvailablePopup.jpg';
 import updatingServiceWorker from './assets/updatingServiceWorker.jpg';
 
+import lighthouseTab from './assets/lighthouse-tab.png';
+import lighthouseResults from './assets/lighthouse-results.png';
+import lighthouseFailed from './assets/lighthouse-failed.png';
+
+import manifestTab from './assets/manifest-tab.png';
+import serviceworkersTab from './assets/serviceworkers-tab.png';
+import storageTab from './assets/storage-tab.png';
 import androidInstallation from './assets/android-installation.gif';
 
 require('normalize.css');
@@ -78,7 +85,7 @@ export default class Presentation extends React.Component {
             In Practice
           </Heading>
           <Text margin="30px 0 0" textColor="tertiary">
-            Martin Kapal & Matúš Giertl
+            Bc. Martin Kapal & Bc. Matúš Giertl
           </Text>
         </Slide>
 
@@ -613,6 +620,107 @@ export default class Presentation extends React.Component {
             iOS Installation Process
           </Heading>
           <Image src="https://thumbs.gfycat.com/EasygoingPartialIrishwaterspaniel-size_restricted.gif" />
+        </Slide>
+
+        <Slide>
+          <Heading size={2}>Testing and Tooling</Heading>
+          <List>
+            {this.renderListItem('Cypress, Selenium for automation')}
+            {this.renderListItem('Lighthouse')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={2}>Lighthouse</Heading>
+          <List>
+            {this.renderListItem(
+              'Automated auditing tool for improving the quality of web pages',
+            )}
+            {this.renderListItem('Accessible via Chrome Dev Tools')}
+            {this.renderListItem('Supported on any kind of web pages')}
+            {this.renderListItem('Includes many different types of audits')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={2}>Lighthouse Audit types</Heading>
+          <List>
+            {this.renderListItem('Mobile/Desktop responsiveness')}
+            {this.renderListItem('Performance')}
+            {this.renderListItem('PWA checklist')}
+            {this.renderListItem('Best Practices')}
+            {this.renderListItem('Accessibility')}
+            {this.renderListItem('SEO')}
+            {this.renderListItem('Network Simulation')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={4}>Lighthouse - initial setup</Heading>
+          <Image src={lighthouseTab} />
+        </Slide>
+
+        <Slide>
+          <Heading size={4}>Audit Results</Heading>
+          <Image src={lighthouseResults} />
+        </Slide>
+
+        <Slide>
+          <Heading size={4}>Audit Results 2</Heading>
+          <List>
+            {this.renderListItem(
+              'Provides detailed information about each section',
+            )}
+            {this.renderListItem(
+              'Shows you the exact spot where you can improve your app',
+            )}
+            <Appear>
+              <Image src={lighthouseFailed} />
+            </Appear>
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading>Chrome Dev Tools</Heading>
+          <List>
+            {this.renderListItem('Your best friend for PWAs')}
+            {this.renderListItem(
+              'Offers insight into critical areas of your app',
+            )}
+            {this.renderListItem('Application Tab in Chrome :)')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading>Manifest Section</Heading>
+          <List>
+            {this.renderListItem('Information about the App Manifest')}
+            {this.renderListItem('Shows you your app manifest settings')}
+            {this.renderListItem('Checks for imperfections')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={4}>Manifest Section 2</Heading>
+          <Image src={manifestTab} />
+        </Slide>
+
+        <Slide>
+          <Heading>Service Workers Tab</Heading>
+          <List>
+            {this.renderListItem('Network simulation')}
+            {this.renderListItem('Lifecycle manipulation')}
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={3}>Service Workers Tab 2</Heading>
+          <Image src={serviceworkersTab} />
+        </Slide>
+
+        <Slide>
+          <Heading>Storage Tab</Heading>
+          <Image src={storageTab} />
         </Slide>
       </Deck>
     );
