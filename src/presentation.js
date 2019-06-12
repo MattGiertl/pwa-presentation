@@ -325,16 +325,13 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['fade']}>
-          <Code textSize="60px">
-            service-worker.js
-          </Code>
+          <Code textSize="60px">service-worker.js</Code>
         </Slide>
         <Slide transition={['fade']}>
           <Heading size={3} margin="20px 0">
             Installation
           </Heading>
-          <Text margin="20px 0">Good time to cache static assets
-          </Text>
+          <Text margin="20px 0">Good time to cache static assets</Text>
           <CodePane
             textSize="24px"
             lang="js"
@@ -388,7 +385,8 @@ export default class Presentation extends React.Component {
               />
               <Code textSize="30px" margin="20px">
                 service-worker.js
-              </Code></div>
+              </Code>
+            </div>
           </Appear>
         </Slide>
 
@@ -419,11 +417,16 @@ export default class Presentation extends React.Component {
               </ListItem>
             </Appear>
             <Appear>
-              <ListItem>Update the file with new static assets<Appear>
-                <span><br />...or let the framework do it for you</span>
-              </Appear></ListItem>
+              <ListItem>
+                Update the file with new static assets
+                <Appear>
+                  <span>
+                    <br />
+                    ...or let the framework do it for you
+                  </span>
+                </Appear>
+              </ListItem>
             </Appear>
-
           </List>
         </Slide>
 
@@ -456,9 +459,7 @@ export default class Presentation extends React.Component {
               <ListItem>New worker enters the "waiting" state</ListItem>
             </Appear>
             <Appear>
-              <ListItem>
-                Refreshing the page is not enough!
-              </ListItem>
+              <ListItem>Refreshing the page is not enough!</ListItem>
             </Appear>
             <Appear>
               <ListItem>
@@ -533,7 +534,9 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['fade']}>
-          <Heading size={3} margin="20px 0">App installation</Heading>
+          <Heading size={3} margin="20px 0">
+            App installation
+          </Heading>
           <List>
             {this.renderListItem(
               'Add to Home Screen banner makes it easy to install the app',
@@ -570,7 +573,7 @@ export default class Presentation extends React.Component {
         <Slide transition={['fade']}>
           <Heading size={3}>What about iOS?</Heading>
           <Appear>
-          <Text>Well...</Text>
+            <Text>Well...</Text>
           </Appear>
           <List>
             {this.renderListItem('Not supported (yet!)')}
@@ -587,7 +590,9 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['fade']}>
-          <Heading size={3} margin="0 0 50px 0">Your turn</Heading>
+          <Heading size={3} margin="0 0 50px 0">
+            Your turn
+          </Heading>
           <Text margin="0 0 30px 0">Install the PRESENTATION itself ;)</Text>
           <Link textSize="50px" href="https://pwa-in-practice.web.app">
             pwa-in-practice.web.app
@@ -712,7 +717,9 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading size={4}>So... which approach should I use for my app?</Heading>
+          <Heading size={4}>
+            So... which approach should I use for my app?
+          </Heading>
         </Slide>
 
         <Slide>
