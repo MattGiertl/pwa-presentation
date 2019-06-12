@@ -296,7 +296,7 @@ export default class Presentation extends React.Component {
             Registration
           </Heading>
           <CodePane
-            textSize="24px"
+            textSize="28px"
             lang="js"
             theme="external"
             source={require('./assets/serviceWorkerRegistration.js.example')}
@@ -314,7 +314,7 @@ export default class Presentation extends React.Component {
             With Create React App
           </Text>
           <CodePane
-            textSize="24px"
+            textSize="28px"
             lang="js"
             theme="external"
             source={`serviceWorker.register();`}
@@ -330,7 +330,7 @@ export default class Presentation extends React.Component {
           </Heading>
           <Text margin="20px 0">Good time to cache static assets</Text>
           <CodePane
-            textSize="24px"
+            textSize="28px"
             lang="js"
             theme="external"
             source={require('./assets/serviceWorkerInstallation.js.example')}
@@ -354,7 +354,7 @@ export default class Presentation extends React.Component {
                 Cache-first strategy – good for static assets
               </Text>
               <CodePane
-                textSize="24px"
+                textSize="28px"
                 lang="js"
                 theme="external"
                 source={require('./assets/serviceWorkerFetchCacheFirst.js.example')}
