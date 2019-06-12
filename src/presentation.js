@@ -593,6 +593,7 @@ export default class Presentation extends React.Component {
             {this.renderListItem('Not supported (yet!)')}
             {this.renderListItem('The banner needs to be implemented manually')}
             {this.renderListItem('The app needs to be installed manually')}
+            {this.renderListItem('Only from Safari')}
           </List>
         </Slide>
 
