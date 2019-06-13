@@ -609,6 +609,16 @@ export default class Presentation extends React.Component {
 
         <Slide transition={['fade']}>
           <Heading size={3} margin="0 0 50px 0">
+            Push notifications
+          </Heading>
+          <List>
+            {this.renderListItem('Android only')}
+            {this.renderListItem('Use a 3rd party service (e.g. OneSignal)')}
+          </List>
+        </Slide>
+
+        <Slide transition={['fade']}>
+          <Heading size={3} margin="0 0 50px 0">
             Your turn!
           </Heading>
           <Text margin="0 0 50px 0">Install the PRESENTATION itself ;)</Text>
