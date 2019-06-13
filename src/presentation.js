@@ -49,6 +49,8 @@ import pwaLogo from './assets/pwa-logo.png';
 import pwaAppIcon from './assets/pwa-icon.png';
 import appShell from './assets/app-shell.jpg';
 
+import appQrCode from './assets/app-qr.png';
+
 require('normalize.css');
 require('./override.css');
 
@@ -488,7 +490,7 @@ export default class Presentation extends React.Component {
         <Slide transition={['fade']}>
           <Image src={newVersionAvailableFullscreen} />
         </Slide>
-        
+
 
         <Slide transition={['fade']}>
           <Image src={updatingServiceWorker} />
@@ -618,10 +620,11 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['fade']}>
-          <Heading size={3} margin="0 0 50px 0">
+          <Heading size={3} margin="0 0 40px 0">
             Your turn!
           </Heading>
           <Text margin="0 0 50px 0">Install the PRESENTATION itself ;)</Text>
+          <Image src={appQrCode} width="300" margin="0 auto 40px" />
           <Image src={pwaAppIcon} />
           <Link textSize="50px" href="https://pwa-in-practice.web.app">
             pwa-in-practice.web.app
