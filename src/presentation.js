@@ -34,11 +34,10 @@ import sw11cacheResponse from './assets/sw11cacheResponse.png';
 import sw12cacheResponseOffline from './assets/sw12cacheResponseOffline.png';
 
 import newVersionAvailablePopup from './assets/newVersionAvailablePopup.jpg';
+import newVersionAvailableFullscreen from './assets/newVersionAvailableFullscreen.png';
 import updatingServiceWorker from './assets/updatingServiceWorker.jpg';
 
-import lighthouseTab from './assets/lighthouse-tab.png';
 import lighthouseResults from './assets/lighthouse-results.png';
-import lighthouseFailed from './assets/lighthouse-failed.png';
 
 import manifestTab from './assets/manifest-tab.png';
 import serviceworkersTab from './assets/serviceworkers-tab.png';
@@ -296,7 +295,7 @@ export default class Presentation extends React.Component {
             Registration
           </Heading>
           <CodePane
-            textSize="28px"
+            textSize="26px"
             lang="js"
             theme="external"
             source={require('./assets/serviceWorkerRegistration.js.example')}
@@ -386,8 +385,18 @@ export default class Presentation extends React.Component {
             What about caching dynamic data?
           </Heading>
           <List>
-            {this.renderListItem("Service worker")}
-            {this.renderListItem(<>Redux Persist<Appear><span> – with additional offline detection & error handling</span></Appear></>)}
+            {this.renderListItem('Service worker')}
+            {this.renderListItem(
+              <>
+                Redux Persist
+                <Appear>
+                  <span>
+                    {' '}
+                    – with additional offline detection & error handling
+                  </span>
+                </Appear>
+              </>,
+            )}
           </List>
         </Slide>
 
@@ -428,7 +437,7 @@ export default class Presentation extends React.Component {
               <ListItem>Precache manifest generated automatically</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Static asset caching by default</ListItem>
+              <ListItem>Static assets cached by default</ListItem>
             </Appear>
           </List>
         </Slide>
@@ -442,12 +451,20 @@ export default class Presentation extends React.Component {
             When does the browser check for updates?
           </Heading>
           <List>
-            {this.renderListItem("On page reload")}
-            {this.renderListItem("When you close and reopen the app")}
-            {this.renderListItem("User goes to a different page – does not work in SPA, workaround needed")}
-            {this.renderListItem("Every 24 hours")}
+            {this.renderListItem('On page reload')}
+            {this.renderListItem('When you close and reopen the app')}
+            {this.renderListItem(
+              'User goes to a different page – does not work in SPA, workaround needed',
+            )}
+            {this.renderListItem('Every 24 hours')}
           </List>
-          <Appear><div><Text margin="50px 0">Make sure your service worker is NOT cached!</Text></div></Appear>
+          <Appear>
+            <div>
+              <Text margin="50px 0">
+                Make sure your service worker is NOT cached!
+              </Text>
+            </div>
+          </Appear>
         </Slide>
 
         <Slide transition={['fade']}>
@@ -456,17 +473,24 @@ export default class Presentation extends React.Component {
           </Heading>
           <List>
             {this.renderListItem('New worker enters the “waiting” state')}
-            {this.renderListItem("Refreshing the page is not enough!")}
-            {this.renderListItem("Old app must be closed to activate the new worker")}
-            {this.renderListItem("Solution: App refresh popup")}
+            {this.renderListItem('Refreshing the page is not enough!')}
+            {this.renderListItem(
+              'Old app must be closed to activate the new worker',
+            )}
+            {this.renderListItem('Solution: App refresh popup')}
           </List>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+        <Slide transition={['fade']}>
           <Image src={newVersionAvailablePopup} />
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+        <Slide transition={['fade']}>
+          <Image src={newVersionAvailableFullscreen} />
+        </Slide>
+        
+
+        <Slide transition={['fade']}>
           <Image src={updatingServiceWorker} />
           <Link href="https://deanhume.com/displaying-a-new-version-available-progressive-web-app/">
             https://deanhume.com/displaying-a-new-version-available-progressive-web-app/
@@ -597,7 +621,7 @@ export default class Presentation extends React.Component {
         <Slide transition={['fade']}>
           <Heading size={3}>Testing and tooling</Heading>
           <List>
-            {this.renderListItem('Cypress, Selenium for automation')}
+            {this.renderListItem('Automated testing tools same as non-PWA')}
             {this.renderListItem('Lighthouse')}
           </List>
         </Slide>
@@ -610,46 +634,15 @@ export default class Presentation extends React.Component {
             )}
             {this.renderListItem('Accessible via Chrome Dev Tools')}
             {this.renderListItem('Supported on any kind of web pages')}
-            {this.renderListItem('Includes many different types of audits')}
+            {this.renderListItem(
+              'Includes many different types of audits, including PWA',
+            )}
           </List>
         </Slide>
 
         <Slide transition={['fade']}>
-          <Heading size={3}>Lighthouse audit types</Heading>
-          <List>
-            {this.renderListItem('Mobile/Desktop responsiveness')}
-            {this.renderListItem('Performance')}
-            {this.renderListItem('PWA checklist')}
-            {this.renderListItem('Best Practices')}
-            {this.renderListItem('Accessibility')}
-            {this.renderListItem('SEO')}
-            {this.renderListItem('Network Simulation')}
-          </List>
-        </Slide>
-
-        <Slide transition={['fade']}>
-          <Heading size={4}>Lighthouse – initial setup</Heading>
-          <Image src={lighthouseTab} />
-        </Slide>
-
-        <Slide transition={['fade']}>
-          <Heading size={4}>Audit Results</Heading>
+          <Heading size={4}>PWA audit results</Heading>
           <Image src={lighthouseResults} />
-        </Slide>
-
-        <Slide transition={['fade']}>
-          <Heading size={4}>Audit Results</Heading>
-          <List>
-            {this.renderListItem(
-              'Provides detailed information about each section',
-            )}
-            {this.renderListItem(
-              'Shows you the exact spot where you can improve your app',
-            )}
-            <Appear>
-              <Image src={lighthouseFailed} />
-            </Appear>
-          </List>
         </Slide>
 
         <Slide>
