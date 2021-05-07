@@ -491,7 +491,6 @@ export default class Presentation extends React.Component {
           <Image src={newVersionAvailableFullscreen} />
         </Slide>
 
-
         <Slide transition={['fade']}>
           <Image src={updatingServiceWorker} />
           <Link href="https://deanhume.com/displaying-a-new-version-available-progressive-web-app/">
