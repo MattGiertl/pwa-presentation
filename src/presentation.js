@@ -87,7 +87,7 @@ export default class Presentation extends React.Component {
             Progressive Web Applications
           </Heading>
           <Text margin="30px 0 0" textColor="tertiary">
-            Martin Kapal & Matúš Giertl
+            Matúš Giertl
           </Text>
         </Slide>
 
